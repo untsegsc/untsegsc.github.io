@@ -4,10 +4,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Capítulo Estudiantil SEG UNT</title>
+<meta name="description" content="Capítulo Estudiantil de la Society of Exploration Geophysicists en la Universidad Nacional de Tucumán, Argentina.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
+
 /* Layout: banda oscura (encabezado + portada con trazas sísmicas) → secciones claras alternando gris → pie oscuro */
 :root {
   --ink: #0f0f10;
@@ -48,7 +50,7 @@ nav a:hover { color: var(--white); }
 .menu-btn[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .menu-btn[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
 .menu-btn[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-@media (max-width: 860px) {
+@media (max-width: 1100px) {
   header .wrap { position: relative; }
   header img { height: 38px; }
   .menu-btn { display: flex; }
@@ -220,6 +222,67 @@ footer a { color: var(--mist); }
   .gallery, .stats { grid-template-columns: 1fr; }
   section { padding-block: 64px; }
 }
+
+/* Idioma */
+html[lang="es"] .en, html[lang="en"] .es { display: none !important; }
+.head-tools { display: flex; align-items: center; gap: 18px; }
+.lang-btn { font: 600 .78rem var(--mono); letter-spacing: .08em; color: var(--white); background: none; border: 1px solid #55555a; padding: 6px 10px; cursor: pointer; }
+.lang-btn:hover { border-color: var(--white); }
+nav a { font-size: .84rem; }
+nav { gap: 16px; }
+@media (max-width: 1100px) { .head-tools { gap: 12px; } }
+
+/* Tarjetas de noticias como links */
+a.news-card { text-decoration: none; color: inherit; }
+a.news-card:hover h3 { text-decoration: underline; text-underline-offset: 3px; }
+.more-link { font-weight: 600; font-size: .9rem; margin-top: 4px; }
+
+/* Carreras */
+.careers { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+a.career { display: grid; gap: 8px; text-decoration: none; background: var(--white); border-top: 3px solid var(--ink); padding: 24px; }
+a.career strong { font-family: var(--display); font-stretch: 80%; font-size: 1.5rem; line-height: 1.1; }
+a.career p { color: var(--graphite); font-size: .95rem; }
+a.career:hover { background: var(--mist); }
+
+/* Historia */
+.years { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 48px; position: sticky; top: 72px; z-index: 5; background: var(--paper); padding: 10px 0; }
+.years a { font-family: var(--mono); font-size: .85rem; text-decoration: none; border: 1px solid var(--mist); background: var(--white); padding: 6px 12px; }
+.years a:hover { border-color: var(--ink); }
+.year-block { margin-bottom: 72px; scroll-margin-top: 140px; display: grid; gap: 18px; }
+.year-head { display: flex; align-items: baseline; gap: 18px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 10px; }
+.year-num { font-family: var(--display); font-stretch: 75%; font-weight: 900; font-size: clamp(2.4rem, 6vw, 3.6rem); line-height: 1; }
+.year-head h3 { font-size: 1.4rem; }
+.year-intro { color: var(--graphite); }
+.year-photo { max-width: 720px; }
+.timeline .event.has-pic { grid-template-columns: 150px 1fr 160px; }
+.ev-pic { width: 160px; aspect-ratio: 4 / 3; object-fit: cover; filter: grayscale(1); }
+.ev-links { display: flex; gap: 16px; flex-wrap: wrap; margin-top: 4px; }
+.ev-link { font-size: .88rem; font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--ink); }
+.boards { display: grid; gap: 18px; border-top: 1px solid var(--mist); padding-top: 32px; }
+.board { display: grid; gap: 6px; }
+.board p { color: var(--graphite); font-size: .95rem; }
+
+/* Nota */
+.article { padding-block: 64px 96px; }
+.wrap.narrow { width: min(760px, 100% - 40px); display: grid; gap: 20px; }
+.article h1 { font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 800; text-transform: none; }
+.article .lead { font-size: 1.2rem; color: var(--graphite); }
+.article-body { display: grid; gap: 16px; }
+.article-body p { font-size: 1.05rem; line-height: 1.7; }
+.article-foot { border-top: 1px solid var(--mist); padding-top: 24px; margin-top: 12px; }
+.back { font-weight: 600; text-decoration: none; font-size: .92rem; }
+
+@media (max-width: 860px) {
+  .careers { grid-template-columns: 1fr; }
+  .timeline .event.has-pic { grid-template-columns: 1fr; }
+  .ev-pic { width: 100%; max-width: 320px; }
+  .years { top: 62px; }
+}
+.years a { color: var(--ink); }
+.event .ev-links { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 4px; }
+.year-photo { max-width: 520px; }
+.year-img { width: 100%; max-width: 560px; height: auto; display: block; }
+
 </style>
 </head>
 <body>
@@ -227,18 +290,22 @@ footer a { color: var(--mist); }
 <header>
   <div class="wrap">
     <a href="#inicio" aria-label="Inicio"><img src="logo-blanco.png" alt="SEG UNT"></a>
-    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    <div class="head-tools">
     <nav aria-label="Secciones" id="menu">
-      <a href="#inicio" data-tab="inicio">Inicio</a>
-      <a href="#nosotros" data-tab="nosotros">Nosotros</a>
-      <a href="#actividades" data-tab="actividades">Actividades</a>
-      <a href="#eventos" data-tab="eventos">Eventos</a>
-      <a href="#logros" data-tab="logros">Logros</a>
-      <a href="#videoteca" data-tab="videoteca">Videoteca</a>
-      <a href="#apoyanos" data-tab="apoyanos">Apoyanos</a>
-      <a href="#sumate" data-tab="sumate">Sumate</a>
-      <a href="#contacto">Contacto</a>
+      <a href="#inicio" data-tab="inicio"><span class="es">Inicio</span><span class="en" lang="en">Home</span></a>
+      <a href="#nosotros" data-tab="nosotros"><span class="es">Nosotros</span><span class="en" lang="en">About</span></a>
+      <a href="#actividades" data-tab="actividades"><span class="es">Actividades</span><span class="en" lang="en">Activities</span></a>
+      <a href="#historia" data-tab="historia"><span class="es">Historia</span><span class="en" lang="en">History</span></a>
+      <a href="#noticias" data-tab="noticias"><span class="es">Noticias</span><span class="en" lang="en">News</span></a>
+      <a href="#logros" data-tab="logros"><span class="es">Logros</span><span class="en" lang="en">Achievements</span></a>
+      <a href="#videoteca" data-tab="videoteca"><span class="es">Videoteca</span><span class="en" lang="en">Videos</span></a>
+      <a href="#apoyanos" data-tab="apoyanos"><span class="es">Apoyanos</span><span class="en" lang="en">Support us</span></a>
+      <a href="#sumate" data-tab="sumate"><span class="es">Sumate</span><span class="en" lang="en">Join</span></a>
+      <a href="#contacto"><span class="es">Contacto</span><span class="en" lang="en">Contact</span></a>
     </nav>
+    <button class="lang-btn" id="lang-btn" type="button" aria-label="Change language to English"><span class="es">EN</span><span class="en" lang="en">ES</span></button>
+    <button class="menu-btn" id="menu-btn" aria-expanded="false" aria-controls="menu" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+    </div>
   </div>
 </header>
 
@@ -247,15 +314,15 @@ footer a { color: var(--mist); }
 <div class="hero">
   <canvas id="traces" aria-hidden="true"></canvas>
   <div class="wrap">
-    <span class="label">Universidad Nacional de Tucumán · Argentina</span>
-    <h1>Capítulo Estudiantil SEG UNT</h1>
-    <p>Conectamos a estudiantes de Geofísica, Geodesia y Geología de la Universidad Nacional de Tucumán con oportunidades profesionales y científicas: charlas, cursos, competencias, divulgación y alianzas institucionales.</p>
+    <span class="label"><span class="es">Universidad Nacional de Tucumán · Argentina</span><span class="en" lang="en">National University of Tucumán · Argentina</span></span>
+    <h1><span class="es">Capítulo Estudiantil SEG UNT</span><span class="en" lang="en">SEG UNT Student Chapter</span></h1>
+    <p><span class="es">Conectamos a estudiantes de Geofísica, Geodesia y Geología de la Universidad Nacional de Tucumán con oportunidades profesionales y científicas: charlas, cursos, competencias, divulgación y alianzas institucionales.</span><span class="en" lang="en">We connect Geophysics, Geodesy and Geology students at the National University of Tucumán with professional and scientific opportunities: talks, courses, competitions, outreach and institutional partnerships.</span></p>
     <div class="actions">
-      <a class="btn solid" href="#sumate">Quiero sumarme</a>
-      <a class="btn" href="#actividades">Ver actividades</a>
+      <a class="btn solid" href="#sumate"><span class="es">Quiero sumarme</span><span class="en" lang="en">Join us</span></a>
+      <a class="btn" href="#actividades"><span class="es">Ver actividades</span><span class="en" lang="en">See activities</span></a>
     </div>
     <div class="affil">
-      <span>Capítulo estudiantil oficial de la</span>
+      <span><span class="es">Capítulo estudiantil oficial de la</span><span class="en" lang="en">Official student chapter of the</span></span>
       <a href="https://seg.org/" target="_blank" rel="noopener"><img src="img/logos/seg-horizontal-blanco.png" alt="Society of Exploration Geophysicists (SEG)"></a>
     </div>
   </div>
@@ -264,13 +331,13 @@ footer a { color: var(--mist); }
 <section id="s-novedades">
   <div class="wrap">
     <div class="head head-row">
-      <div class="stack" style="gap:14px"><span class="label">Lo último del capítulo</span><h2>Novedades</h2></div>
-      <a class="more" href="#eventos">Ver todos los eventos →</a>
+      <div class="stack" style="gap:14px"><span class="label"><span class="es">Lo último del capítulo</span><span class="en" lang="en">Latest from the chapter</span></span><h2><span class="es">Noticias</span><span class="en" lang="en">News</span></h2></div>
+      <a class="more" href="#noticias"><span class="es">Ver todas las noticias →</span><span class="en" lang="en">See all news →</span></a>
     </div>
     <div class="news-grid">
-      <article class="news-card"><img class="pic wide" src="img/image-houston-grupo.jpg" alt="Delegación del capítulo con la bandera SEG UNT en Houston" loading="lazy" style="object-position:center"><time>11 sep 2026</time><h3>Webinar «De Tucumán a Houston»</h3><p>Junto al capítulo SEG UNLP, los seis integrantes de la delegación contaron su experiencia en IMAGE 2026.</p></article>
-      <article class="news-card"><img class="pic wide" src="img/image-houston-testigos.jpg" alt="Estudiantes del capítulo observando testigos de roca en IMAGE 2026" loading="lazy" style="object-position:center 40%"><time>17–20 ago 2026</time><h3>Seis estudiantes de la UNT en IMAGE 2026</h3><p>En la final individual del Challenge Bowl en Houston, el podio fue completo para el capítulo: Leandro Vitulli Paz, María Bernarda Kanán y Justo Casañas.</p></article>
-      <article class="news-card"><img class="pic wide" src="img/expo-stand.jpg" alt="Stand de Ingeniería Geodésica y Geofísica en Exactas para Todos" loading="lazy" style="object-position:center 75%"><time>12–14 ago 2026</time><h3>Exactas para Todos · Expo UNT</h3><p>Acompañamos el stand de Ingeniería Geodésica y Geofísica y organizamos dos charlas a cargo de estudiantes.</p></article>
+      <a class="news-card" href="#n-sitio-web"><img class="pic wide" src="img/sitio-nuevo.jpg" alt="El capítulo estrena sitio web" loading="lazy" style="object-position:center 40%"><time><span class="es">30 de octubre de 2026</span><span class="en" lang="en">October 30, 2026</span></time><h3><span class="es">El capítulo estrena sitio web</span><span class="en" lang="en">The chapter launches its new website</span></h3><p><span class="es">Toda la información del Capítulo Estudiantil SEG UNT, ahora en un solo lugar y en dos idiomas.</span><span class="en" lang="en">All the information about the SEG UNT Student Chapter, now in one place and in two languages.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-comision"><img class="pic wide" src="img/bandera.jpg" alt="Asumió la nueva Comisión Directiva 2026–2027" loading="lazy" style="object-position:center 40%"><time><span class="es">Octubre de 2026</span><span class="en" lang="en">October 2026</span></time><h3><span class="es">Asumió la nueva Comisión Directiva 2026–2027</span><span class="en" lang="en">The new 2026–2027 Executive Board takes office</span></h3><p><span class="es">El capítulo completó la renovación de todos sus cargos y secretarías.</span><span class="en" lang="en">The chapter completed the renewal of all its officer positions and secretariats.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-webinar-houston"><img class="pic wide" src="img/image-houston-grupo.jpg" alt="«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026" loading="lazy" style="object-position:center 40%"><time><span class="es">11 de septiembre de 2026</span><span class="en" lang="en">September 11, 2026</span></time><h3><span class="es">«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026</span><span class="en" lang="en">"From Tucumán to Houston": the delegation shared its IMAGE 2026 experience</span></h3><p><span class="es">Un webinar junto al capítulo SEG UNLP para compartir lo vivido en la final internacional de la Challenge Bowl.</span><span class="en" lang="en">A webinar with the SEG UNLP chapter to share what it was like at the Challenge Bowl international finals.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
     </div>
   </div>
 </section>
@@ -278,84 +345,84 @@ footer a { color: var(--mist); }
 <section id="s-explora" class="alt">
   <div class="wrap">
     <div class="shortcuts">
-      <a href="#nosotros"><span class="label">Nosotros</span><strong>Conocé a la comisión</strong><p>Quiénes somos y quiénes llevan adelante el capítulo.</p></a>
-      <a href="#actividades"><span class="label">Actividades</span><strong>Qué hacemos</strong><p>Charlas, cursos, divulgación en escuelas y competencias.</p></a>
-      <a href="#apoyanos"><span class="label">Apoyanos</span><strong>Colaborá con nosotros</strong><p>Profesionales, instituciones y empresas.</p></a>
-      <a href="#sumate"><span class="label">Sumate</span><strong>Hacete miembro</strong><p>Si estudiás geociencias, hay lugar para vos.</p></a>
+      <a href="#historia"><span class="label"><span class="es">Historia</span><span class="en" lang="en">History</span></span><strong><span class="es">Desde 2019</span><span class="en" lang="en">Since 2019</span></strong><p><span class="es">Cómo nació el capítulo y todo lo que hicimos año por año.</span><span class="en" lang="en">How the chapter began and everything we have done, year by year.</span></p></a>
+      <a href="#nosotros"><span class="label"><span class="es">Nosotros</span><span class="en" lang="en">About</span></span><strong><span class="es">Conocé a la comisión</span><span class="en" lang="en">Meet the board</span></strong><p><span class="es">Quiénes somos y quiénes llevan adelante el capítulo.</span><span class="en" lang="en">Who we are and who runs the chapter.</span></p></a>
+      <a href="#apoyanos"><span class="label"><span class="es">Apoyanos</span><span class="en" lang="en">Support us</span></span><strong><span class="es">Colaborá con nosotros</span><span class="en" lang="en">Collaborate with us</span></strong><p><span class="es">Profesionales, instituciones y empresas.</span><span class="en" lang="en">Professionals, institutions and companies.</span></p></a>
+      <a href="#sumate"><span class="label"><span class="es">Sumate</span><span class="en" lang="en">Join</span></span><strong><span class="es">Hacete miembro</span><span class="en" lang="en">Become a member</span></strong><p><span class="es">Si estudiás geociencias, hay lugar para vos.</span><span class="en" lang="en">If you study geosciences, there is a place for you.</span></p></a>
     </div>
   </div>
 </section>
-
 </div>
 
 <div class="view" id="nosotros" data-view>
-<section id="s-quienes-somos">
+<section id="s-quienes">
   <div class="wrap two">
     <div class="stack">
-      <span class="label">Quiénes somos</span>
-      <h2>Un capítulo interdisciplinario</h2>
-      <p>Somos el capítulo estudiantil de la SEG en la UNT. Reunimos a estudiantes de Ingeniería Geodésica y Geofísica (FACET) y de Geología (FCN e IML), y estamos abiertos a otras carreras afines.</p>
-      <p>Trabajamos para acercar la geofísica de exploración a la comunidad universitaria y a la sociedad, en minería, energía, ambiente y geotecnia, y para vincular a los estudiantes con la industria y la academia.</p>
-      <p>Organizamos cursos, webinars, conferencias y foros. Después de varios años sin actividad, en 2025 iniciamos la reactivación del capítulo y retomamos la divulgación, la formación académica y el trabajo junto a otros capítulos.</p>
+      <span class="label"><span class="es">Quiénes somos</span><span class="en" lang="en">Who we are</span></span>
+      <h2><span class="es">Un capítulo interdisciplinario</span><span class="en" lang="en">An interdisciplinary chapter</span></h2>
+      <p><span class="es">Somos el capítulo estudiantil de la Society of Exploration Geophysicists (SEG) en la Universidad Nacional de Tucumán. Reunimos a estudiantes de Ingeniería Geodésica y Geofísica (FACET) y de Geología (FCN e IML), y estamos abiertos a otras carreras afines como Agrimensura, Ingeniería Civil y Geografía.</span><span class="en" lang="en">We are the student chapter of the Society of Exploration Geophysicists (SEG) at the National University of Tucumán. We bring together students of Geodetic and Geophysical Engineering (FACET) and Geology (FCN e IML), and we are open to related programmes such as Surveying, Civil Engineering and Geography.</span></p>
+      <p><span class="es">El capítulo se formó en 2019, a partir de la SEG Challenge Bowl organizada en Tucumán. Después de un período sin actividad, en 2025 iniciamos su reactivación. Organizamos cursos, webinars, conferencias, foros, divulgación y competencias, y vinculamos a los estudiantes con la industria y la academia.</span><span class="en" lang="en">The chapter was formed in 2019, following the SEG Challenge Bowl held in Tucumán. After a period of inactivity, we began its reactivation in 2025. We organize courses, webinars, conferences, forums, outreach and competitions, and connect students with industry and academia.</span></p>
+      <a class="more" href="#historia"><span class="es">Conocé nuestra historia →</span><span class="en" lang="en">Read our history →</span></a>
     </div>
-    <img class="pic" src="img/equipo.jpg" alt="Integrantes del capítulo con buzos de la UNT" loading="lazy" style="object-position:center 40%">
+    <img class="pic" src="img/equipo.jpg" alt="Integrantes del capítulo" loading="lazy" style="object-position:center 40%">
+  </div>
+  <div class="wrap" style="margin-top:72px">
+    <div class="head"><span class="label"><span class="es">Nuestras carreras</span><span class="en" lang="en">Our degree programmes</span></span><h3><span class="es">Dónde estudian nuestros miembros</span><span class="en" lang="en">Where our members study</span></h3></div>
+    <div class="careers">
+      <a class="career" href="https://www.facet.unt.edu.ar/geodesia-geofisica/" target="_blank" rel="noopener"><span class="label">FACET – UNT</span><strong><span class="es">Ingeniería Geodésica y Geofísica</span><span class="en" lang="en">Geodetic and Geophysical Engineering</span></strong><p><span class="es">Facultad de Ciencias Exactas y Tecnología</span><span class="en" lang="en">Faculty of Exact Sciences and Technology</span></p><span class="more-link"><span class="es">Ver la carrera ↗</span><span class="en" lang="en">See the programme ↗</span></span></a>
+      <a class="career" href="https://info.csnat.unt.edu.ar/carreras/geologia" target="_blank" rel="noopener"><span class="label">FCN e IML – UNT</span><strong><span class="es">Geología</span><span class="en" lang="en">Geology</span></strong><p><span class="es">Facultad de Ciencias Naturales e Instituto Miguel Lillo</span><span class="en" lang="en">Faculty of Natural Sciences and Miguel Lillo Institute</span></p><span class="more-link"><span class="es">Ver la carrera ↗</span><span class="en" lang="en">See the programme ↗</span></span></a>
+    </div>
   </div>
 </section>
 
 <section id="s-comision" class="alt">
   <div class="wrap">
     <div class="head">
-      <span class="label">Renovación octubre 2026</span>
-      <h2>Comisión Directiva</h2>
+      <span class="label"><span class="es">Renovación octubre 2026</span><span class="en" lang="en">Renewed October 2026</span></span>
+      <h2><span class="es">Comisión Directiva</span><span class="en" lang="en">Executive Board</span></h2>
     </div>
     <div class="people">
-      <div class="person"><img class="pic sq" src="img/comision/matias-contardo.jpg" alt="Matías Ezequiel Contardo" loading="lazy"><strong>Matías Ezequiel Contardo</strong><span>Presidencia</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/albana-zottoli.jpg" alt="Albana Zottoli" loading="lazy"><strong>Albana Zottoli</strong><span>Vicepresidencia</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/leandro-vitulli-paz.jpg" alt="Leandro Andrea Vitulli Paz" loading="lazy"><strong>Leandro Andrea Vitulli Paz</strong><span>Secretaría General</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/joel-perez-leandrini.jpg" alt="Joel Perez Leandrini" loading="lazy"><strong>Joel Perez Leandrini</strong><span>Tesorería</span></div>
+      <div class="person"><img class="pic sq" src="img/comision/matias-contardo.jpg" alt="Matías Ezequiel Contardo" loading="lazy"><strong>Matías Ezequiel Contardo</strong><span><span class="es">Presidencia</span><span class="en" lang="en">President</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/albana-zottoli.jpg" alt="Albana Zottoli" loading="lazy"><strong>Albana Zottoli</strong><span><span class="es">Vicepresidencia</span><span class="en" lang="en">Vice President</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/leandro-vitulli-paz.jpg" alt="Leandro Andrea Vitulli Paz" loading="lazy"><strong>Leandro Andrea Vitulli Paz</strong><span><span class="es">Secretaría General</span><span class="en" lang="en">Secretary General</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/joel-perez-leandrini.jpg" alt="Joel Perez Leandrini" loading="lazy"><strong>Joel Perez Leandrini</strong><span><span class="es">Tesorería</span><span class="en" lang="en">Treasurer</span></span></div>
     </div>
-    <div class="head" style="margin-top:56px">
-      <h3>Secretaría de Extensión</h3>
-    </div>
+    <div class="head" style="margin-top:56px"><h3><span class="es">Secretaría de Extensión</span><span class="en" lang="en">Outreach Secretariat</span></h3></div>
     <div class="people">
-      <div class="person"><img class="pic sq" src="img/comision/matheo-such.jpg" alt="Matheo Such" loading="lazy"><strong>Matheo Such</strong><span>Sec. de Extensión</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/jenifer-denise-carrizo.jpg" alt="Jenifer Denise Carrizo" loading="lazy"><strong>Jenifer Denise Carrizo</strong><span>Sec. de Extensión</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/emilce-grisel-albornoz.jpg" alt="Emilce Grisel Albornoz" loading="lazy"><strong>Emilce Grisel Albornoz</strong><span>Sec. de Extensión</span></div>
+      <div class="person"><img class="pic sq" src="img/comision/matheo-such.jpg" alt="Matheo Such" loading="lazy"><strong>Matheo Such</strong><span><span class="es">Sec. de Extensión</span><span class="en" lang="en">Outreach</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/jenifer-denise-carrizo.jpg" alt="Jenifer Denise Carrizo" loading="lazy"><strong>Jenifer Denise Carrizo</strong><span><span class="es">Sec. de Extensión</span><span class="en" lang="en">Outreach</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/emilce-grisel-albornoz.jpg" alt="Emilce Grisel Albornoz" loading="lazy"><strong>Emilce Grisel Albornoz</strong><span><span class="es">Sec. de Extensión</span><span class="en" lang="en">Outreach</span></span></div>
     </div>
-    <div class="head" style="margin-top:56px">
-      <h3>Secretaría de Prensa y Difusión</h3>
-    </div>
+    <div class="head" style="margin-top:56px"><h3><span class="es">Secretaría de Prensa y Difusión</span><span class="en" lang="en">Press and Communications Secretariat</span></h3></div>
     <div class="people">
-      <div class="person"><img class="pic sq" src="img/comision/milagros-valentina-gatti.jpg" alt="Milagros Valentina Gatti" loading="lazy"><strong>Milagros Valentina Gatti</strong><span>Sec. de Prensa y Difusión</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/araceli-velardez.jpg" alt="Araceli Velardez" loading="lazy"><strong>Araceli Velardez</strong><span>Sec. de Prensa y Difusión</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/maria-claribel.jpg" alt="María Claribel" loading="lazy"><strong>María Claribel</strong><span>Sec. de Prensa y Difusión</span></div>
+      <div class="person"><img class="pic sq" src="img/comision/milagros-valentina-gatti.jpg" alt="Milagros Valentina Gatti" loading="lazy"><strong>Milagros Valentina Gatti</strong><span><span class="es">Sec. de Prensa y Difusión</span><span class="en" lang="en">Press and Communications</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/araceli-velardez.jpg" alt="Araceli Velardez" loading="lazy"><strong>Araceli Velardez</strong><span><span class="es">Sec. de Prensa y Difusión</span><span class="en" lang="en">Press and Communications</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/maria-claribel.jpg" alt="María Claribel" loading="lazy"><strong>María Claribel</strong><span><span class="es">Sec. de Prensa y Difusión</span><span class="en" lang="en">Press and Communications</span></span></div>
     </div>
-    <div class="head" style="margin-top:56px">
-      <h3>Secretaría de Proyectos y Logística</h3>
-    </div>
+    <div class="head" style="margin-top:56px"><h3><span class="es">Secretaría de Proyectos y Logística</span><span class="en" lang="en">Projects and Logistics Secretariat</span></h3></div>
     <div class="people">
-      <div class="person"><img class="pic sq" src="img/comision/maria-bernarda-kanan.jpg" alt="María Bernarda Kanán" loading="lazy"><strong>María Bernarda Kanán</strong><span>Sec. de Proyectos y Logística</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/catalina-pedro.jpg" alt="Catalina Pedro" loading="lazy"><strong>Catalina Pedro</strong><span>Sec. de Proyectos y Logística</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/paula-diaz.jpg" alt="Paula Díaz" loading="lazy"><strong>Paula Díaz</strong><span>Sec. de Proyectos y Logística</span></div>
+      <div class="person"><img class="pic sq" src="img/comision/maria-bernarda-kanan.jpg" alt="María Bernarda Kanán" loading="lazy"><strong>María Bernarda Kanán</strong><span><span class="es">Sec. de Proyectos y Logística</span><span class="en" lang="en">Projects and Logistics</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/catalina-pedro.jpg" alt="Catalina Pedro" loading="lazy"><strong>Catalina Pedro</strong><span><span class="es">Sec. de Proyectos y Logística</span><span class="en" lang="en">Projects and Logistics</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/paula-diaz.jpg" alt="Paula Díaz" loading="lazy"><strong>Paula Díaz</strong><span><span class="es">Sec. de Proyectos y Logística</span><span class="en" lang="en">Projects and Logistics</span></span></div>
     </div>
     <div class="head" style="margin-top:64px">
-      <span class="label">Acompañamiento docente</span>
-      <h3>Asesores académicos</h3>
+      <span class="label"><span class="es">Acompañamiento docente</span><span class="en" lang="en">Faculty support</span></span>
+      <h3><span class="es">Asesores académicos</span><span class="en" lang="en">Faculty advisors</span></h3>
     </div>
     <div class="people">
-      <div class="person"><img class="pic sq" src="img/comision/sergio-sosa.jpg" alt="Ing. Sergio Alfredo Sosa" loading="lazy"><strong>Ing. Sergio Alfredo Sosa</strong><span>Faculty Advisor</span></div>
-      <div class="person"><img class="pic sq" src="img/comision/maria-fernanda-graneros.jpg" alt="Ing. María Fernanda Graneros" loading="lazy"><strong>Ing. María Fernanda Graneros</strong><span>Faculty Advisor</span></div>
+      <div class="person"><img class="pic sq" src="img/comision/sergio-sosa.jpg" alt="Ing. Sergio Alfredo Sosa" loading="lazy"><strong>Ing. Sergio Alfredo Sosa</strong><span><span class="es">Asesor</span><span class="en" lang="en">Faculty Advisor</span></span></div>
+      <div class="person"><img class="pic sq" src="img/comision/maria-fernanda-graneros.jpg" alt="Ing. María Fernanda Graneros" loading="lazy"><strong>Ing. María Fernanda Graneros</strong><span><span class="es">Asesora</span><span class="en" lang="en">Faculty Advisor</span></span></div>
     </div>
     <div class="head" style="margin-top:64px">
-      <span class="label">Trabajamos con</span>
-      <h3>Alianzas e instituciones</h3>
+      <span class="label"><span class="es">Trabajamos con</span><span class="en" lang="en">We work with</span></span>
+      <h3><span class="es">Alianzas e instituciones</span><span class="en" lang="en">Partners and institutions</span></h3>
     </div>
     <div class="partner-groups">
-      <div class="pgroup"><span class="label">Sociedad profesional</span><div class="partners"><a class="chip" href="https://seg.org/" target="_blank" rel="noopener"><b>SEG</b><small>Society of Exploration Geophysicists</small><i aria-hidden="true">↗</i></a></div></div>
-      <div class="pgroup"><span class="label">Universidad Nacional de Tucumán</span><div class="partners"><a class="chip" href="https://www.facet.unt.edu.ar/" target="_blank" rel="noopener"><b>FACET</b><small>Facultad de Ciencias Exactas y Tecnología</small><i aria-hidden="true">↗</i></a><a class="chip" href="https://csnat.unt.edu.ar/" target="_blank" rel="noopener"><b>FCN e IML</b><small>Facultad de Ciencias Naturales e Instituto Miguel Lillo</small><i aria-hidden="true">↗</i></a><span class="chip"><b>Cooperadora FACET</b><small>Asociación Cooperadora de la FACET</small></span></div></div>
-      <div class="pgroup"><span class="label">Organizaciones estudiantiles</span><div class="partners"><span class="chip"><b>AEGeT</b><small>Asociación de Estudiantes de Geología de Tucumán</small></span><span class="chip"><b>CEGGA</b><small>Comisión de Estudiantes de Ingeniería Geodésica y Geofísica y Agrimensura</small></span><span class="chip"><b>AAPG UNT</b><small>American Association of Petroleum Geologists · Student Chapter</small></span></div></div>
-      <div class="pgroup"><span class="label">Capítulos estudiantiles SEG</span><div class="partners"><span class="chip"><b>SEG UNSJ</b><small>Universidad Nacional de San Juan</small></span><span class="chip"><b>SEG UNLP</b><small>Universidad Nacional de La Plata</small></span><span class="chip"><b>SEG ASOIU</b><small>Azerbaijan State Oil and Industry University</small></span></div></div>
-      <div class="pgroup"><span class="label">Fundaciones</span><div class="partners"><a class="chip" href="https://fundacionypf.org/" target="_blank" rel="noopener"><b>Fundación YPF</b><i aria-hidden="true">↗</i></a></div></div>
+      <div class="pgroup"><span class="label"><span class="es">Sociedad profesional</span><span class="en" lang="en">Professional society</span></span><div class="partners"><a class="chip" href="https://seg.org/" target="_blank" rel="noopener"><b>SEG</b><small>Society of Exploration Geophysicists</small><i aria-hidden="true">↗</i></a></div></div>
+      <div class="pgroup"><span class="label"><span class="es">Universidad Nacional de Tucumán</span><span class="en" lang="en">National University of Tucumán</span></span><div class="partners"><a class="chip" href="https://www.facet.unt.edu.ar/" target="_blank" rel="noopener"><b>FACET</b><small><span class="es">Facultad de Ciencias Exactas y Tecnología</span><span class="en" lang="en">Faculty of Exact Sciences and Technology</span></small><i aria-hidden="true">↗</i></a><a class="chip" href="https://csnat.unt.edu.ar/" target="_blank" rel="noopener"><b>FCN e IML</b><small><span class="es">Facultad de Ciencias Naturales e Instituto Miguel Lillo</span><span class="en" lang="en">Faculty of Natural Sciences and Miguel Lillo Institute</span></small><i aria-hidden="true">↗</i></a><span class="chip"><b>Cooperadora FACET</b><small><span class="es">Asociación Cooperadora de la FACET</span><span class="en" lang="en">FACET Cooperative Association</span></small></span></div></div>
+      <div class="pgroup"><span class="label"><span class="es">Organizaciones estudiantiles</span><span class="en" lang="en">Student organizations</span></span><div class="partners"><span class="chip"><b>AEGeT</b><small><span class="es">Asociación de Estudiantes de Geología de Tucumán</span><span class="en" lang="en">Tucumán Geology Students Association</span></small></span><span class="chip"><b>CEGGA</b><small><span class="es">Comisión de Estudiantes de Ingeniería Geodésica y Geofísica y Agrimensura</span><span class="en" lang="en">Geodetic and Geophysical Engineering and Surveying Students Commission</span></small></span><span class="chip"><b>AAPG UNT</b><small>American Association of Petroleum Geologists · Student Chapter</small></span></div></div>
+      <div class="pgroup"><span class="label"><span class="es">Capítulos estudiantiles SEG</span><span class="en" lang="en">SEG student chapters</span></span><div class="partners"><span class="chip"><b>SEG UNSJ</b><small><span class="es">Universidad Nacional de San Juan</span><span class="en" lang="en">National University of San Juan</span></small></span><span class="chip"><b>SEG UNLP</b><small><span class="es">Universidad Nacional de La Plata</span><span class="en" lang="en">National University of La Plata</span></small></span><span class="chip"><b>SEG ASOIU</b><small>Azerbaijan State Oil and Industry University</small></span></div></div>
+      <div class="pgroup"><span class="label"><span class="es">Fundaciones</span><span class="en" lang="en">Foundations</span></span><div class="partners"><a class="chip" href="https://fundacionypf.org/" target="_blank" rel="noopener"><b>Fundación YPF</b><i aria-hidden="true">↗</i></a></div></div>
     </div>
   </div>
 </section>
@@ -365,120 +432,347 @@ footer a { color: var(--mist); }
 <section id="s-actividades">
   <div class="wrap">
     <div class="head">
-      <span class="label">Qué hacemos</span>
-      <h2>Actividades</h2>
+      <span class="label"><span class="es">Qué hacemos</span><span class="en" lang="en">What we do</span></span>
+      <h2><span class="es">Actividades</span><span class="en" lang="en">Activities</span></h2>
     </div>
     <div class="cards">
-      <article class="card">
-        <span class="label">Formación</span>
-        <h3>Charlas y cursos</h3>
-        <p>Profesionales y docentes de petróleo y gas, minería, geofísica ambiental y espacial comparten su experiencia con estudiantes.</p>
-      </article>
-      <article class="card">
-        <span class="label">Divulgación</span>
-        <h3>Geophysics at Schools</h3>
-        <p>Programa financiado por un SEG Outreach Grant: llevamos la geofísica a escuelas secundarias de Tucumán, con foco en métodos eléctricos (SEV con arreglos Wenner y Schlumberger).</p>
-      </article>
-      <article class="card">
-        <span class="label">Desarrollo profesional</span>
-        <h3>Mentorías</h3>
-        <p>Participamos del Programa de Mentorías SEG-LARAC, que acompaña a estudiantes de Latinoamérica con mentores de la industria y la academia para orientar su desarrollo profesional.</p>
-      </article>
-      <article class="card">
-        <span class="label">Competencias</span>
-        <h3>SEG Challenge Bowl</h3>
-        <p>Competencia internacional de geociencias en equipos de dos, con instancias local, regional e internacional. Preparamos a nuestros equipos junto a estudiantes de otros capítulos.</p>
-      </article>
-      <article class="card">
-        <span class="label">Comunidad</span>
-        <h3>Ferias y congresos</h3>
-        <p>Organizamos webinars, jornadas Interchapters y quizzes internacionales junto a capítulos SEG de Argentina y del exterior. Participamos en CONEXPLO 2026, Argentina Mining 2026 y Exactas para Todos, y avalamos la XXXI Reunión Científica de la AAGG (Concordia, 2027).</p>
-      </article>
+      <article class="card"><span class="label"><span class="es">Formación</span><span class="en" lang="en">Training</span></span><h3><span class="es">Charlas y cursos</span><span class="en" lang="en">Talks and courses</span></h3><p><span class="es">Profesionales y docentes de petróleo y gas, minería, geofísica ambiental y espacial comparten su experiencia con estudiantes.</span><span class="en" lang="en">Professionals and academics from oil and gas, mining, environmental and space geophysics share their experience with students.</span></p></article>
+      <article class="card"><span class="label"><span class="es">Divulgación</span><span class="en" lang="en">Outreach</span></span><h3>Geophysics at Schools</h3><p><span class="es">Programa financiado por un SEG Outreach Grant: llevamos la geofísica a escuelas secundarias de Tucumán, con foco en métodos eléctricos (SEV con arreglos Wenner y Schlumberger).</span><span class="en" lang="en">Programme funded by an SEG Outreach Grant: we take geophysics to secondary schools in Tucumán, focusing on electrical methods (VES with Wenner and Schlumberger arrays).</span></p></article>
+      <article class="card"><span class="label"><span class="es">Desarrollo profesional</span><span class="en" lang="en">Professional development</span></span><h3><span class="es">Mentorías</span><span class="en" lang="en">Mentoring</span></h3><p><span class="es">Participamos del Programa de Mentorías SEG-LARAC, que acompaña a estudiantes de Latinoamérica con mentores de la industria y la academia para orientar su desarrollo profesional.</span><span class="en" lang="en">We take part in the SEG-LARAC Mentorship Program, which pairs Latin American students with mentors from industry and academia to guide their professional development.</span></p></article>
+      <article class="card"><span class="label"><span class="es">Competencias</span><span class="en" lang="en">Competitions</span></span><h3>SEG Challenge Bowl</h3><p><span class="es">Competencia internacional de geociencias en equipos de dos, con instancias local, regional e internacional. Preparamos a nuestros equipos junto a estudiantes de otros capítulos.</span><span class="en" lang="en">International geoscience competition for two-student teams, with local, regional and international stages. We prepare our teams together with students from other chapters.</span></p></article>
+      <article class="card"><span class="label"><span class="es">Comunidad</span><span class="en" lang="en">Community</span></span><h3><span class="es">Ferias y congresos</span><span class="en" lang="en">Fairs and conferences</span></h3><p><span class="es">Organizamos webinars, jornadas Interchapters y quizzes internacionales junto a capítulos SEG de Argentina y del exterior. Participamos en CONEXPLO 2026, Argentina Mining 2026 y Exactas para Todos, y avalamos la XXXI Reunión Científica de la AAGG (Concordia, 2027).</span><span class="en" lang="en">We organize webinars, Interchapters meetings and international quizzes with SEG chapters from Argentina and abroad. We took part in CONEXPLO 2026, Argentina Mining 2026 and Exactas para Todos, and endorsed the 31st AAGG Scientific Meeting (Concordia, 2027).</span></p></article>
     </div>
   </div>
 </section>
 </div>
 
-<div class="view" id="eventos" data-view>
-<section id="s-trayectoria">
+<div class="view" id="historia" data-view>
+<section id="s-historia">
   <div class="wrap">
     <div class="head">
-      <span class="label">De la reactivación a Houston</span>
-      <h2>Trayectoria</h2>
+      <span class="label">2018 – 2026</span>
+      <h2><span class="es">Historia del capítulo</span><span class="en" lang="en">Chapter history</span></h2>
+      <p><span class="es">Desde la Challenge Bowl de 2019 que le dio origen hasta la final de Houston en 2026: todas las charlas, cursos, competencias y proyectos del Capítulo Estudiantil SEG UNT.</span><span class="en" lang="en">From the 2019 Challenge Bowl that gave rise to it to the 2026 finals in Houston: every talk, course, competition and project of the SEG UNT Student Chapter.</span></p>
     </div>
-    <div class="two">
+    <div class="years" role="navigation" aria-label="Años"><a href="#h2019" data-jump="h2019">2018–2019</a><a href="#h2020" data-jump="h2020">2020</a><a href="#h2021" data-jump="h2021">2021</a><a href="#h2022" data-jump="h2022">2022</a><a href="#h2023" data-jump="h2023">2023</a><a href="#h2024" data-jump="h2024">2024</a><a href="#h2025" data-jump="h2025">2025</a><a href="#h2026" data-jump="h2026">2026</a></div>
+    <div class="year-block" id="h2019">
+      <div class="year-head"><span class="year-num">2018–2019</span><h3><span class="es">Los orígenes</span><span class="en" lang="en">The origins</span></h3></div>
+      <p class="year-intro"><span class="es">El capítulo nació alrededor de la SEG Challenge Bowl: para competir, los estudiantes de la UNT necesitaban formar un capítulo estudiantil.</span><span class="en" lang="en">The chapter was born around the SEG Challenge Bowl: to compete, UNT students needed to form a student chapter.</span></p>
+      <img class="year-img" src="img/challenge-bowl-2019.jpg" alt="Los orígenes" loading="lazy">
       <div class="timeline">
-        <div class="year">2025</div>
-        <div class="event"><time>Julio 2025</time><div><h3>Visita al Instituto Volponi (UNSJ)</h3><p>Miembros del capítulo participaron de la Escuela de Geofísica en el Instituto Geofísico Sismológico Ing. Volponi, en San Juan. El contacto con el capítulo SEG de la UNSJ despertó el interés por reactivar el nuestro.</p></div></div>
-        <div class="event"><time>2025</time><div><h3>Divulgación y ferias de carreras</h3><p>Presentamos Ingeniería Geodésica y Geofísica y las geociencias a futuros estudiantes y a la comunidad de la UNT.</p></div></div>
-        <div class="event"><time>29 oct 2025</time><div><h3>Bases para la reactivación</h3><p>Definimos las Bases y Puntos de Partida para la Reactivación, con el asesoramiento de la Ing. María Fernanda Graneros y la meta de reunir los diez miembros activos que exige la SEG.</p></div></div>
-        <div class="year">2026</div>
-        <div class="event"><time>22 abr 2026</time><div><h3>Interchapters por el Día de la Tierra</h3><p>Jornada virtual y gratuita de los tres capítulos SEG de Argentina: dinámica del glaciar Denman, hielo subterráneo en ambientes periglaciales, teledetección de glaciares patagónicos, edafología y el método H/V de los Andes a la Antártida.</p></div></div>
-        <div class="event"><time>30 may 2026</time><div><h3>Challenge Bowl regional (LARAC)</h3><p>Récord de participación con 24 equipos de cinco países. Tres equipos de la UNT terminaron entre los cinco primeros y clasificaron a la final internacional.</p></div></div>
-        <div class="event"><time>5 jun 2026</time><div><h3>World Environment Day Quiz</h3><p>Quiz internacional e individual por el Día Mundial del Medio Ambiente, organizado junto a los capítulos SEG ASOIU, UNSJ y UNLP. Tres rondas en vivo sobre geofísica, geografía, ciencias ambientales e historia de la ciencia, abiertas a estudiantes de grado y posgrado de todo el mundo.</p></div></div>
-        <div class="event"><time>23 jun 2026</time><div><h3>«Más allá de la Costa»</h3><p>Webinar del Dr. Fermín Palma sobre la exploración del fondo oceánico y la plataforma continental del Mar Argentino, organizado por los capítulos SEG de Argentina.</p></div></div>
-        <div class="event"><time>12–14 ago 2026</time><div><h3>Exactas para Todos · Expo UNT</h3><p>Acompañamos el stand de Ingeniería Geodésica y Geofísica en la FACET y organizamos dos charlas a cargo de estudiantes: «Experiencia de prácticas mineras en YMAD – Farallón Negro» (Aixa Asus y María Jimena Graneros) y «La cicatriz de California: ¿por qué tiembla? Explorando la Falla de San Andrés» (Jenifer Carrizo y Gabriel Urueña).</p></div></div>
-        <div class="event"><time>17–20 ago 2026</time><div><h3>IMAGE 2026, Houston</h3><p>Seis estudiantes de la UNT en la final internacional del Challenge Bowl, en el George R. Brown Convention Center.</p></div></div>
-        <div class="event"><time>11 sep 2026</time><div><h3>«De Tucumán a Houston»</h3><p>Webinar junto al capítulo SEG UNLP con los seis integrantes de la delegación.</p></div></div>
+        <div class="event"><time>2018</time><div><h3><span class="es">Las primeras bases</span><span class="en" lang="en">Laying the groundwork</span></h3><p><span class="es">Docentes del Departamento de Geología y de la carrera de Ingeniería Geodésica y Geofísica, junto a las autoridades de la FCN e IML, trabajaron para que los estudiantes pudieran participar de la SEG Challenge Bowl, organizada por la SEG y su afiliada local, la Asociación Argentina de Geólogos y Geofísicos Petroleros (AAGGP).</span><span class="en" lang="en">Professors from the Department of Geology and the Geodetic and Geophysical Engineering programme, together with the authorities of FCN e IML, worked so that students could take part in the SEG Challenge Bowl, organized by the SEG and its local affiliate, the Argentine Association of Petroleum Geologists and Geophysicists (AAGGP).</span></p></div></div>
+        <div class="event"><time>2018</time><div><h3><span class="es">La invitación desde San Juan</span><span class="en" lang="en">The invitation from San Juan</span></h3><p><span class="es">Durante la Challenge Bowl 2018 en San Juan, el Lic. Gustavo Cartens, representante de la SEG y la AAPG, invitó a los estudiantes de la UNT a participar al año siguiente y propuso a Tucumán como sede. A fines de 2018 la FCN e IML recibió la invitación formal.</span><span class="en" lang="en">During the 2018 Challenge Bowl in San Juan, Lic. Gustavo Cartens, a representative of the SEG and the AAPG, invited UNT students to take part the following year and proposed Tucumán as the next host. At the end of 2018, FCN e IML received the formal invitation.</span></p></div></div>
+        <div class="event"><time>2019</time><div><h3><span class="es">Nace el Capítulo Estudiantil SEG UNT</span><span class="en" lang="en">The SEG UNT Student Chapter is born</span></h3><p><span class="es">Estudiantes de Geología y de Ingeniería Geodésica y Geofísica crearon el capítulo, requisito del reglamento de la competencia. La primera comisión directiva estuvo integrada por Rocío Malen Contreras, Nicolás Gastaminza, María Fernanda Graneros y Juan Segundo Sánchez Ruíz. En su primer año participaron más de 50 estudiantes en reuniones, charlas y cursos.</span><span class="en" lang="en">Students of Geology and of Geodetic and Geophysical Engineering created the chapter, a requirement of the competition rules. The founding board was made up of Rocío Malen Contreras, Nicolás Gastaminza, María Fernanda Graneros and Juan Segundo Sánchez Ruíz. During its first year, more than 50 students took part in meetings, talks and courses.</span></p></div></div>
+        <div class="event"><time><span class="es">Abril 2019</span><span class="en" lang="en">April 2019</span></time><div><h3><span class="es">Challenge Bowl en Tucumán</span><span class="en" lang="en">Challenge Bowl in Tucumán</span></h3><p><span class="es">La competencia se realizó en la FCN e IML. Los estudiantes de la UNT obtuvieron el segundo puesto a nivel nacional.</span><span class="en" lang="en">The competition was held at FCN e IML. UNT students finished in second place at the national level.</span></p></div></div>
       </div>
-      <div class="stack">
-        <img class="pic" src="img/volponi.jpg" alt="Instituto Geofísico Sismológico Ing. Volponi, San Juan" loading="lazy" style="object-position:center 55%">
-        <img class="pic" src="img/tierra.jpg" alt="La Tierra vista desde el espacio" loading="lazy" style="object-position:center">
-        <img class="pic" src="img/quiz-ambiente.jpg" alt="Pantalla del World Environment Day Quiz con los logos de los capítulos organizadores" loading="lazy" style="object-position:top">
-        <img class="pic" src="img/expo-recorrida.jpg" alt="Estudiantes secundarios recorriendo los stands de la FACET" loading="lazy" style="object-position:center 55%">
+    </div>
+    <div class="year-block" id="h2020">
+      <div class="year-head"><span class="year-num">2020</span><h3><span class="es">Geociencias en la virtualidad</span><span class="en" lang="en">Geosciences gone virtual</span></h3></div>
+      <p class="year-intro"><span class="es">La pandemia impidió las actividades presenciales, pero la virtualidad permitió conectar con profesionales de toda Latinoamérica y abrir las actividades a nivel nacional e internacional. En junio de 2020 la comisión fundadora cerró su mandato y convocó a elecciones.</span><span class="en" lang="en">The pandemic prevented face-to-face activities, but going virtual allowed the chapter to connect with professionals across Latin America and open its activities nationally and internationally. In June 2020 the founding board concluded its term and called elections.</span></p>
+      <img class="year-img" src="img/home-office-2020.jpg" alt="Geociencias en la virtualidad" loading="lazy">
+      <div class="timeline">
+        <div class="event"><time><span class="es">14–17 dic</span><span class="en" lang="en">Dec 14–17</span></time><div><h3><span class="es">Ciclo de conferencias entre capítulos</span><span class="en" lang="en">Inter-chapter conference cycle</span></h3><p><span class="es">Cuatro charlas organizadas por los capítulos SEG y AAPG de la UNT, la UNC, la UBA y la UNS sobre cambio climático, teledetección, recursos geotérmicos y reservorios no convencionales. Nuestro capítulo estuvo a cargo de «Exploración de recursos geotérmicos – Caso de estudio: Pismanta (San Juan)», de Rodolfo Christiansen.</span><span class="en" lang="en">Four talks organized by the SEG and AAPG chapters of UNT, UNC, UBA and UNS on climate change, remote sensing, geothermal resources and unconventional reservoirs. Our chapter hosted "Exploration of geothermal resources – Case study: Pismanta (San Juan)" by Rodolfo Christiansen.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/J135uY2CqKE" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">«La Luna, entendiendo a nuestro satélite natural»</span><span class="en" lang="en">"The Moon, understanding our natural satellite"</span></h3><p><span class="es">Mauro Spagnuolo (IDEAN, UBA-CONICET) repasó la formación y la geología lunar y su relación con la evolución interna y orbital de la Luna.</span><span class="en" lang="en">Mauro Spagnuolo (IDEAN, UBA-CONICET) reviewed the Moon's formation and geology and their relation to its internal and orbital evolution.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/JGo5CX3CCGY" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">Monitoreo volcánico en Argentina</span><span class="en" lang="en">Volcanic monitoring in Argentina</span></h3><p><span class="es">El geólogo Sebastián García contó los desafíos del SEGEMAR en la creación del Observatorio Argentino de Vigilancia Volcánica (OAVV).</span><span class="en" lang="en">Geologist Sebastián García described SEGEMAR's challenges in creating the Argentine Volcanic Surveillance Observatory (OAVV).</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/_QXijOIBfqQ" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">El límite exterior de la plataforma continental</span><span class="en" lang="en">The outer limit of the continental shelf</span></h3><p><span class="es">La Dra. María Alejandra Arecco explicó el aporte de la geofísica (campos potenciales, sísmica y modelado gravimétrico 2D) a la determinación del límite exterior de la plataforma continental argentina.</span><span class="en" lang="en">Dr. María Alejandra Arecco explained how geophysics (potential fields, seismic interpretation and 2D gravity modelling) contributed to determining the outer limit of the Argentine continental shelf.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/AbZayve5MAw" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">Geofísica para aguas subterráneas</span><span class="en" lang="en">Geophysics for groundwater</span></h3><p><span class="es">El Ing. Julián Ramos presentó cuatro investigaciones hidrogeológicas en Argentina y Uruguay que combinaron métodos geofísicos y técnicas geomáticas.</span><span class="en" lang="en">Eng. Julián Ramos presented four hydrogeological investigations in Argentina and Uruguay combining geophysical methods and geomatic techniques.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/c1mqcw7ExzU" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">«De las montañas a la Cordillera de los Andes, pasando por la Antártida»</span><span class="en" lang="en">"From the mountains to the Andes, passing through Antarctica"</span></h3><p><span class="es">El geólogo Matías Barrionuevo compartió su recorrido profesional en el ámbito científico y en la industria petrolera.</span><span class="en" lang="en">Geologist Matías Barrionuevo shared his professional path in science and the oil industry.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/R6yo-ULfEHI" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">«Desafío Home Office»</span><span class="en" lang="en">"Home Office Challenge"</span></h3><p><span class="es">Karina Anis (YPF) habló sobre la estructura de la industria energética, la crisis de demanda de abril de 2020 y la adaptación al trabajo remoto.</span><span class="en" lang="en">Karina Anis (YPF) spoke about the structure of the energy industry, the April 2020 demand crisis and adapting to remote work.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/kPJQO-p3Pv0" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time><span class="es">Jun–jul</span><span class="en" lang="en">Jun–Jul</span></time><div><h3><span class="es">Primer Foro Latinoamericano: Geofísica, sociedad y ambiente</span><span class="en" lang="en">First Latin American Forum: Geophysics, society and environment</span></h3><p><span class="es">Ciclo de webinars de capítulos SEG, AMGE, EAGE y AAPG de Argentina, Brasil, Colombia, México y Perú. Participamos con «La sísmica en altamar como herramienta para el desarrollo energético de un país», del Ing. Gabriel Olmedo.</span><span class="en" lang="en">Webinar series by SEG, AMGE, EAGE and AAPG chapters from Argentina, Brazil, Colombia, Mexico and Peru. We took part with "Offshore seismic as a tool for a country's energy development" by Eng. Gabriel Olmedo.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=bGqoTWPolB0" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">Mini taller «Sismología volcánica aplicada»</span><span class="en" lang="en">Mini workshop "Applied volcanic seismology"</span></h3><p><span class="es">Dictado por el Dr. Daniel Basualto Alarcón: identificación y clasificación de sismos volcánicos con el programa SWARM, con casos de volcanes de Chile.</span><span class="en" lang="en">Taught by Dr. Daniel Basualto Alarcón: identifying and classifying volcanic earthquakes with the SWARM software, using cases from Chilean volcanoes.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/gDwslEOy4wI" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">Taller «Usos y aplicaciones de GNU Octave»</span><span class="en" lang="en">Workshop "Uses and applications of GNU Octave"</span></h3><p><span class="es">El Ing. Jorge Marcelo Durand dictó 9 encuentros virtuales en vivo, con la participación de 12 estudiantes de la UNT.</span><span class="en" lang="en">Eng. Jorge Marcelo Durand gave 9 live virtual sessions attended by 12 UNT students.</span></p></div></div>
+        <div class="event"><time><span class="es">23–25 jul</span><span class="en" lang="en">Jul 23–25</span></time><div><h3>CIVGEO 2020</h3><p><span class="es">Primer Congreso Internacional Virtual de Geología y Geofísica. Colaboramos con la difusión, nuestros miembros accedieron a inscripciones gratuitas y la comisión presentó sus actividades en una cumbre de integración de capítulos estudiantiles de América.</span><span class="en" lang="en">First Virtual International Congress of Geology and Geophysics. We helped promote it, our members received free registration and the board presented its activities at an integration summit of American student chapters.</span></p></div></div>
+        <div class="event"><time>2020</time><div><h3><span class="es">Vivo «Universitario a prueba»</span><span class="en" lang="en">Live session "University life on trial"</span></h3><p><span class="es">Junto al capítulo AAPG La Plata, la geóloga Florencia Sarasola (YPF) respondió preguntas sobre la vida universitaria y la profesión.</span><span class="en" lang="en">Together with the AAPG La Plata chapter, geologist Florencia Sarasola (YPF) answered questions about university life and the profession.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/zfFjtoETx9Y" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2020</time><div><h3>Energy Switch Case Competition</h3><p><span class="es">Un equipo de estudiantes de Geología, con la mentoría de Jack Trueblood (Switch Energy Alliance), diseñó una estrategia energética de corto, mediano y largo plazo para Haití.</span><span class="en" lang="en">A team of Geology students, mentored by Jack Trueblood (Switch Energy Alliance), designed a short-, medium- and long-term energy strategy for Haiti.</span></p></div></div>
       </div>
+    </div>
+    <div class="year-block" id="h2021">
+      <div class="year-head"><span class="year-num">2021</span><h3><span class="es">Charlas, cursos y un 4.º puesto mundial</span><span class="en" lang="en">Talks, courses and 4th place worldwide</span></h3></div>
+      <p class="year-intro"><span class="es">La mayoría de las actividades siguieron siendo virtuales.</span><span class="en" lang="en">Most activities remained virtual.</span></p>
+      <img class="year-img" src="img/geotuc-2021.jpg" alt="Charlas, cursos y un 4.º puesto mundial" loading="lazy">
+      <div class="timeline">
+        <div class="event"><time>2021</time><div><h3><span class="es">Challenge Bowl 2021: 4.º puesto en la final</span><span class="en" lang="en">2021 Challenge Bowl: 4th place in the finals</span></h3><p><span class="es">El equipo GEOTUC, integrado por Ariana Dulci y Germán Herrera, llegó a la final y obtuvo el cuarto puesto entre 18 equipos de universidades de todo el mundo.</span><span class="en" lang="en">The GEOTUC team, Ariana Dulci and Germán Herrera, reached the finals and won fourth place among 18 teams from universities around the world.</span></p></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">«El rol de la geocientífica»</span><span class="en" lang="en">"The role of the female geoscientist"</span></h3><p><span class="es">Junto a SEG Women's Network Argentina, Ivette Barrios y Rosina Barberis hablaron sobre perspectivas de género en la minería y el petróleo.</span><span class="en" lang="en">Together with SEG Women's Network Argentina, Ivette Barrios and Rosina Barberis spoke about gender perspectives in mining and oil.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=QAXbzolSAPY" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Foro «Mujeres en geociencias»</span><span class="en" lang="en">"Women in geosciences" forum</span></h3><p><span class="es">Coordinado por María Fernanda Graneros (UNT) y Natalí Alejandra Barría (UNC), con las profesionales Ana Curcio y Raquel Villegas.</span><span class="en" lang="en">Led by María Fernanda Graneros (UNT) and Natalí Alejandra Barría (UNC), with professionals Ana Curcio and Raquel Villegas.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/QOpm4lbrOno" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">«Experiencia: becaria YPF»</span><span class="en" lang="en">"Experience: YPF scholarship recipient"</span></h3><p><span class="es">Abigail Brito, estudiante de Ingeniería Geodésica y Geofísica, contó su paso por el programa de becas de YPF, donde su proyecto fue finalista.</span><span class="en" lang="en">Abigail Brito, a Geodetic and Geophysical Engineering student, shared her experience in YPF's scholarship programme, where her project was a finalist.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=S77ElOMwM4E" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Ciclo de charlas de Geociencias</span><span class="en" lang="en">Geosciences talk series</span></h3><p><span class="es">Nueve encuentros en tres semanas organizados por los capítulos SEG de Udelar, UBA, UNC, UNS, UNSJ y UNT, sobre sísmica, reservorios, métodos electromagnéticos, gravimetría satelital, magnetometría y geodesia volcánica.</span><span class="en" lang="en">Nine sessions over three weeks organized by the SEG chapters of Udelar, UBA, UNC, UNS, UNSJ and UNT, on seismics, reservoirs, electromagnetic methods, satellite gravimetry, magnetics and volcanic geodesy.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/channel/UCbpGLCD8YhHYOK8NOnj1JCQ" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Menhires de Tafí del Valle</span><span class="en" lang="en">Menhirs of Tafí del Valle</span></h3><p><span class="es">El geólogo Sergio Nicolás Nieva presentó su investigación sobre la degradación, el monitoreo y la digitalización 3D de los menhires.</span><span class="en" lang="en">Geologist Sergio Nicolás Nieva presented his research on the degradation, monitoring and 3D digitization of the menhirs.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=qr3-LxPHOCQ" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">«Geoeléctrica: mezcla de experiencia y ciencia»</span><span class="en" lang="en">"Geoelectrics: a mix of expertise and science"</span></h3><p><span class="es">Mario Chury explicó los fundamentos de la geoeléctrica y los sondeos eléctricos; Adrián Silva Busso, su aplicación a acuíferos, permafrost y zonas hipersalinas.</span><span class="en" lang="en">Mario Chury explained the fundamentals of geoelectrics and electrical soundings; Adrián Silva Busso, their application to aquifers, permafrost and hypersaline zones.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=rAqYbtF8oPc" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Mediciones de vibración de suelos</span><span class="en" lang="en">Soil vibration measurements</span></h3><p><span class="es">El Ing. Francisco Calderón presentó equipos de medición, microzonificación sísmica y la detección de tubos de lava a partir de vibraciones.</span><span class="en" lang="en">Eng. Francisco Calderón presented measuring equipment, seismic microzoning and the detection of lava tubes from vibrations.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=AlaJe3XyVlA" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Reservorios no convencionales</span><span class="en" lang="en">Unconventional reservoirs</span></h3><p><span class="es">Karina Anis (YPF) explicó la caracterización geológica y sísmica de reservorios shale, con el caso de Vaca Muerta.</span><span class="en" lang="en">Karina Anis (YPF) explained the geological and seismic characterization of shale reservoirs, with the Vaca Muerta case.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=vdZTTXnBcuE" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Caracterización sísmica de reservorios</span><span class="en" lang="en">Seismic reservoir characterization</span></h3><p><span class="es">Laura Laguado Granado (YPF) mostró la relación entre la microsísmica y el monitoreo de la estimulación hidráulica.</span><span class="en" lang="en">Laura Laguado Granado (YPF) showed how microseismics relates to monitoring hydraulic stimulation.</span></p><div class="ev-links"><a class="ev-link" href="https://youtu.be/ZHIJam4y-W4" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Cursos con el Dr. Fernando Lebinson</span><span class="en" lang="en">Courses with Dr. Fernando Lebinson</span></h3><p><span class="es">Tres cursos gratuitos y asincrónicos: «Introducción a QGIS», «Análisis de relieve con sistemas de información geográfica» y «Google Earth y sus aplicaciones en geociencias».</span><span class="en" lang="en">Three free asynchronous courses: "Introduction to QGIS", "Relief analysis using GIS" and "Google Earth and its applications in geosciences".</span></p></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">Proyecto «Una Gota Limpia»</span><span class="en" lang="en">"A Clean Drop" project</span></h3><p><span class="es">Proyecto para Geoscientists Without Borders de búsqueda de agua apta para consumo en una comunidad semirrural de Leales, Tucumán. Llegó a la fase II del programa y se presentó en las XV Jornadas de la FCN.</span><span class="en" lang="en">Project for Geoscientists Without Borders to find drinking water for a semi-rural community in Leales, Tucumán. It reached phase II of the programme and was presented at the 15th FCN Conference.</span></p><div class="ev-links"><a class="ev-link" href="https://www.instagram.com/unagotalimpia/" target="_blank" rel="noopener"><span class="es">Ver más ↗</span><span class="en" lang="en">See more ↗</span></a></div></div></div>
+        <div class="event"><time>2021</time><div><h3><span class="es">2.ª Conferencia Virtual de Estudiantes SEG Latinoamérica</span><span class="en" lang="en">2nd SEG Latin America Virtual Student Conference</span></h3><p><span class="es">Florencia Anahí Santillán y Juan Manuel Losarcos presentaron la identificación de tubos de lava mediante vibración ambiental, vinculada al mini rover lunar «RoverTito».</span><span class="en" lang="en">Florencia Anahí Santillán and Juan Manuel Losarcos presented lava tube identification through ambient vibration, linked to the "RoverTito" lunar mini rover.</span></p></div></div>
+      </div>
+    </div>
+    <div class="year-block" id="h2022">
+      <div class="year-head"><span class="year-num">2022</span><h3><span class="es">Webinars y vida académica</span><span class="en" lang="en">Webinars and academic life</span></h3></div>
+      
+      <img class="year-img" src="img/ingles-2022.jpg" alt="Webinars y vida académica" loading="lazy">
+      <div class="timeline">
+        <div class="event"><time>2022</time><div><h3><span class="es">«HYDROPLUS»</span><span class="en" lang="en">"HYDROPLUS"</span></h3><p><span class="es">Denis Alvarez Contreras y Axel Leonel Córdoba presentaron un hidrogel con nutrientes que retiene el agua de riego y la libera de a poco.</span><span class="en" lang="en">Denis Alvarez Contreras and Axel Leonel Córdoba presented a nutrient hydrogel that retains irrigation water and releases it slowly.</span></p><div class="ev-links"><a class="ev-link" href="https://www.youtube.com/watch?v=tm0A68X2Hzo" target="_blank" rel="noopener"><span class="es">Ver en YouTube ↗</span><span class="en" lang="en">Watch on YouTube ↗</span></a></div></div></div>
+        <div class="event"><time><span class="es">22 jun</span><span class="en" lang="en">Jun 22</span></time><div><h3><span class="es">«Pioneras en la industria minera»</span><span class="en" lang="en">"Pioneers in the mining industry"</span></h3><p><span class="es">Charla de la Dra. Ana Silvia Fogliata.</span><span class="en" lang="en">Talk by Dr. Ana Silvia Fogliata.</span></p></div></div>
+        <div class="event"><time><span class="es">5 ago</span><span class="en" lang="en">Aug 5</span></time><div><h3><span class="es">Trabajo final de Ángela Urquiola</span><span class="en" lang="en">Ángela Urquiola's final project</span></h3><p><span class="es">Presentación en la FACET del diseño preliminar de una perforación de agua en Atahona (Tucumán) basada en mediciones geoeléctricas.</span><span class="en" lang="en">Presentation at FACET of the preliminary design of a water well in Atahona (Tucumán) based on geoelectrical measurements.</span></p></div></div>
+        <div class="event"><time><span class="es">12 sep</span><span class="en" lang="en">Sep 12</span></time><div><h3><span class="es">Práctica profesional de Luciana Sosa</span><span class="en" lang="en">Luciana Sosa's professional practice</span></h3><p><span class="es">Presentación de la práctica profesional supervisada de la estudiante de Ingeniería Geodésica y Geofísica.</span><span class="en" lang="en">Presentation of the Geodetic and Geophysical Engineering student's supervised professional practice.</span></p></div></div>
+        <div class="event"><time><span class="es">17 oct</span><span class="en" lang="en">Oct 17</span></time><div><h3><span class="es">«Sistemas Petroleros»</span><span class="en" lang="en">"Petroleum Systems"</span></h3><p><span class="es">El Dr. Carlos Martín Falcón presentó los elementos y procesos geológicos necesarios para que exista un reservorio de petróleo o gas.</span><span class="en" lang="en">Dr. Carlos Martín Falcón presented the geological elements and processes required for an oil or gas reservoir to exist.</span></p></div></div>
+        <div class="event"><time>Oct</time><div><h3><span class="es">Defensa de tesis de Paulina Vacaflor</span><span class="en" lang="en">Paulina Vacaflor's thesis defense</span></h3><p><span class="es">Invitamos a la defensa pública de su doctorado sobre errores en productos de sensores remotos para estudios glaciológicos en el Campo de Hielo Patagónico Sur.</span><span class="en" lang="en">We invited the community to the public defense of her doctorate on errors in remote-sensing products for glaciological studies of the Southern Patagonian Ice Field.</span></p></div></div>
+        <div class="event"><time><span class="es">16 nov</span><span class="en" lang="en">Nov 16</span></time><div><h3><span class="es">Gravimetría y cuerpos ígneos</span><span class="en" lang="en">Gravimetry and igneous bodies</span></h3><p><span class="es">La Dra. Ana Eugenia Acosta Nagle explicó la importancia de la gravimetría en el modelado de cuerpos graníticos.</span><span class="en" lang="en">Dr. Ana Eugenia Acosta Nagle explained the importance of gravimetry in modelling granitic bodies.</span></p></div></div>
+        <div class="event"><time><span class="es">25 nov</span><span class="en" lang="en">Nov 25</span></time><div><h3><span class="es">«Magnetismo: una herramienta para resolver diversos problemas»</span><span class="en" lang="en">"Magnetism: a tool to solve diverse problems"</span></h3><p><span class="es">Webinar de la Dra. Cecilia Mariel Spagnuolo.</span><span class="en" lang="en">Webinar by Dr. Cecilia Mariel Spagnuolo.</span></p></div></div>
+        <div class="event"><time><span class="es">6 dic</span><span class="en" lang="en">Dec 6</span></time><div><h3><span class="es">«Introducción a la Geonavegación»</span><span class="en" lang="en">"Introduction to Geosteering"</span></h3><p><span class="es">El geólogo Juan Pablo Buccino presentó los aspectos básicos de la navegación de pozos en reservorios no convencionales.</span><span class="en" lang="en">Geologist Juan Pablo Buccino presented the basics of well navigation in unconventional reservoirs.</span></p></div></div>
+        <div class="event has-pic"><time>2022</time><div><h3><span class="es">Encuentros de conversación en inglés</span><span class="en" lang="en">English conversation meetings</span></h3><p><span class="es">Con estudiantes de intercambio nativos, para fortalecer una habilidad cada vez más necesaria en geociencias.</span><span class="en" lang="en">With native-speaking exchange students, to strengthen a skill increasingly required in geosciences.</span></p></div><img class="ev-pic" src="img/ingles-2022.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="year-block" id="h2023">
+      <div class="year-head"><span class="year-num">2023</span><h3><span class="es">Jornadas y salida laboral</span><span class="en" lang="en">Conferences and careers</span></h3></div>
+      
+      <img class="year-img" src="img/jornada-2023.jpg" alt="Jornadas y salida laboral" loading="lazy">
+      <div class="timeline">
+        <div class="event"><time><span class="es">15 may</span><span class="en" lang="en">May 15</span></time><div><h3><span class="es">2.ª Jornada de Geología y Geofísica</span><span class="en" lang="en">2nd Conference on Geology and Geophysics</span></h3><p><span class="es">En la FCN e IML, con charlas de Aldo Montagna (modelos geológicos conceptuales), Esteban Pieroni y Diego Moglia (yacimiento de petróleo pesado Llancanelo) y Karina Mykietiuk y Mirta Juárez (exploración en YPF y el proyecto offshore).</span><span class="en" lang="en">At FCN e IML, with talks by Aldo Montagna (conceptual geological models), Esteban Pieroni and Diego Moglia (Llancanelo heavy-oil field) and Karina Mykietiuk and Mirta Juárez (exploration at YPF and the offshore project).</span></p></div></div>
+        <div class="event"><time><span class="es">4 jul</span><span class="en" lang="en">Jul 4</span></time><div><h3><span class="es">Posgrados en KFUPM</span><span class="en" lang="en">Graduate studies at KFUPM</span></h3><p><span class="es">El geólogo Iván E. Ferreira contó las oportunidades de posgrado y becas en la King Fahd University of Petroleum and Minerals, en Arabia Saudita.</span><span class="en" lang="en">Geologist Iván E. Ferreira shared graduate and scholarship opportunities at King Fahd University of Petroleum and Minerals, Saudi Arabia.</span></p></div></div>
+        <div class="event has-pic"><time><span class="es">16 ago</span><span class="en" lang="en">Aug 16</span></time><div><h3><span class="es">«La Geofísica de la universidad al campo laboral en lo digital»</span><span class="en" lang="en">"Geophysics from university to the digital job market"</span></h3><p><span class="es">En la FACET, la Ing. Ángela Urquiola compartió su experiencia profesional en SLB.</span><span class="en" lang="en">At FACET, Eng. Ángela Urquiola shared her professional experience at SLB.</span></p></div><img class="ev-pic" src="img/urquiola-2023.jpg" alt="" loading="lazy"></div>
+      </div>
+    </div>
+    <div class="year-block" id="h2024">
+      <div class="year-head"><span class="year-num">2024</span><h3><span class="es">Taller de SIG y teledetección</span><span class="en" lang="en">GIS and remote sensing workshop</span></h3></div>
+      
+      <img class="year-img" src="img/taller-sig-2024.jpg" alt="Taller de SIG y teledetección" loading="lazy">
+      <div class="timeline">
+        <div class="event"><time><span class="es">Desde el 31 may</span><span class="en" lang="en">From May 31</span></time><div><h3><span class="es">Taller SEG 2024</span><span class="en" lang="en">2024 SEG Workshop</span></h3><p><span class="es">«Herramientas de SIG y teledetección aplicadas a cuencas hídricas», dictado por la Dra. María Soledad Bustos y la geóloga Antonella Isuani, en encuentros semanales de dos horas los viernes.</span><span class="en" lang="en">"GIS and remote sensing tools applied to water basins", taught by Dr. María Soledad Bustos and geologist Antonella Isuani in weekly two-hour Friday sessions.</span></p></div></div>
+      </div>
+    </div>
+    <div class="year-block" id="h2025">
+      <div class="year-head"><span class="year-num">2025</span><h3><span class="es">La reactivación</span><span class="en" lang="en">The reactivation</span></h3></div>
+      <p class="year-intro"><span class="es">Tras un período sin actividad, en 2025 el capítulo inició su reactivación y retomó la divulgación, la formación y el trabajo con otros capítulos.</span><span class="en" lang="en">After a period of inactivity, in 2025 the chapter began its reactivation and resumed outreach, training and inter-chapter work.</span></p>
+      
+      <div class="timeline">
+        <div class="event has-pic"><time><span class="es">Julio</span><span class="en" lang="en">July</span></time><div><h3><span class="es">Visita al Instituto Volponi (UNSJ)</span><span class="en" lang="en">Visit to the Volponi Institute (UNSJ)</span></h3><p><span class="es">Miembros del capítulo participaron de la Escuela de Geofísica en el Instituto Geofísico Sismológico Ing. Volponi, en San Juan. El contacto con el capítulo SEG de la UNSJ despertó el interés por reactivar el nuestro.</span><span class="en" lang="en">Chapter members attended the Geophysics School at the Ing. Volponi Geophysical and Seismological Institute in San Juan. Contact with the UNSJ SEG chapter sparked the interest in reactivating ours.</span></p></div><img class="ev-pic" src="img/volponi.jpg" alt="" loading="lazy"></div>
+        <div class="event"><time>2025</time><div><h3><span class="es">Divulgación y ferias de carreras</span><span class="en" lang="en">Outreach and career fairs</span></h3><p><span class="es">Presentamos Ingeniería Geodésica y Geofísica y las geociencias a futuros estudiantes y a la comunidad de la UNT.</span><span class="en" lang="en">We presented Geodetic and Geophysical Engineering and the geosciences to prospective students and the UNT community.</span></p></div></div>
+        <div class="event"><time><span class="es">29 oct</span><span class="en" lang="en">Oct 29</span></time><div><h3><span class="es">Bases para la reactivación</span><span class="en" lang="en">Reactivation guidelines</span></h3><p><span class="es">Definimos las Bases y Puntos de Partida para la Reactivación, con el asesoramiento de la Ing. María Fernanda Graneros y la meta de reunir los diez miembros activos que exige la SEG.</span><span class="en" lang="en">We set out the reactivation guidelines, advised by Eng. María Fernanda Graneros, aiming to gather the ten active members required by the SEG.</span></p></div></div>
+      </div>
+    </div>
+    <div class="year-block" id="h2026">
+      <div class="year-head"><span class="year-num">2026</span><h3><span class="es">De Tucumán a Houston</span><span class="en" lang="en">From Tucumán to Houston</span></h3></div>
+      
+      
+      <div class="timeline">
+        <div class="event has-pic"><time><span class="es">22 abr</span><span class="en" lang="en">Apr 22</span></time><div><h3><span class="es">Interchapters por el Día de la Tierra</span><span class="en" lang="en">Interchapters for Earth Day</span></h3><p><span class="es">Jornada virtual de los tres capítulos SEG de Argentina sobre glaciares, hielo subterráneo, teledetección, edafología y el método H/V.</span><span class="en" lang="en">Virtual meeting of Argentina's three SEG chapters on glaciers, subsurface ice, remote sensing, soil science and the H/V method.</span></p></div><img class="ev-pic" src="img/tierra.jpg" alt="" loading="lazy"></div>
+        <div class="event"><time><span class="es">30 may</span><span class="en" lang="en">May 30</span></time><div><h3><span class="es">Challenge Bowl regional (LARAC)</span><span class="en" lang="en">Regional Challenge Bowl (LARAC)</span></h3><p><span class="es">Récord de 24 equipos de cinco países. Tres equipos de la UNT terminaron entre los cinco primeros y clasificaron a la final internacional.</span><span class="en" lang="en">A record 24 teams from five countries. Three UNT teams finished in the top five and qualified for the international finals.</span></p><div class="ev-links"><a class="ev-link" href="#n-larac"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div></div>
+        <div class="event has-pic"><time><span class="es">5 jun</span><span class="en" lang="en">Jun 5</span></time><div><h3>World Environment Day Quiz</h3><p><span class="es">Quiz internacional e individual co-organizado con los capítulos SEG ASOIU, UNSJ y UNLP.</span><span class="en" lang="en">International individual quiz co-organized with the SEG ASOIU, UNSJ and UNLP chapters.</span></p><div class="ev-links"><a class="ev-link" href="#n-quiz"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div><img class="ev-pic" src="img/quiz-ambiente.jpg" alt="" loading="lazy"></div>
+        <div class="event"><time><span class="es">23 jun</span><span class="en" lang="en">Jun 23</span></time><div><h3><span class="es">«Más allá de la Costa»</span><span class="en" lang="en">"Beyond the Coast"</span></h3><p><span class="es">Webinar del Dr. Fermín Palma sobre la exploración del fondo oceánico y la plataforma continental del Mar Argentino.</span><span class="en" lang="en">Webinar by Dr. Fermín Palma on exploring the ocean floor and continental shelf of the Argentine Sea.</span></p></div></div>
+        <div class="event has-pic"><time><span class="es">Jul–oct</span><span class="en" lang="en">Jul–Oct</span></time><div><h3>Geophysics at Schools</h3><p><span class="es">Con un SEG Outreach Grant llevamos la geofísica a escuelas secundarias de Tucumán, con foco en métodos eléctricos.</span><span class="en" lang="en">With an SEG Outreach Grant we took geophysics to secondary schools in Tucumán, focusing on electrical methods.</span></p></div><img class="ev-pic" src="img/charla-escuela.jpg" alt="" loading="lazy"></div>
+        <div class="event has-pic"><time><span class="es">12–14 ago</span><span class="en" lang="en">Aug 12–14</span></time><div><h3><span class="es">Exactas para Todos · Expo UNT</span><span class="en" lang="en">Exactas para Todos · UNT Expo</span></h3><p><span class="es">Stand de Ingeniería Geodésica y Geofísica y dos charlas a cargo de estudiantes.</span><span class="en" lang="en">Geodetic and Geophysical Engineering stand and two student talks.</span></p><div class="ev-links"><a class="ev-link" href="#n-expo"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div><img class="ev-pic" src="img/expo-recorrida.jpg" alt="" loading="lazy"></div>
+        <div class="event has-pic"><time><span class="es">17–20 ago</span><span class="en" lang="en">Aug 17–20</span></time><div><h3>IMAGE 2026, Houston</h3><p><span class="es">Seis estudiantes de la UNT en la final internacional del Challenge Bowl; el podio individual fue completo para el capítulo.</span><span class="en" lang="en">Six UNT students in the Challenge Bowl international finals; the individual podium was swept by the chapter.</span></p><div class="ev-links"><a class="ev-link" href="#n-podio"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div><img class="ev-pic" src="img/image-houston-testigos.jpg" alt="" loading="lazy"></div>
+        <div class="event"><time><span class="es">11 sep</span><span class="en" lang="en">Sep 11</span></time><div><h3><span class="es">«De Tucumán a Houston»</span><span class="en" lang="en">"From Tucumán to Houston"</span></h3><p><span class="es">Webinar junto al capítulo SEG UNLP con los seis integrantes de la delegación.</span><span class="en" lang="en">Webinar with the SEG UNLP chapter featuring the six delegates.</span></p><div class="ev-links"><a class="ev-link" href="#n-webinar-houston"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div></div>
+        <div class="event has-pic"><time>2026</time><div><h3>CONEXPLO 2026</h3><p><span class="es">Participamos del 12.º Congreso de Exploración y Desarrollo de Hidrocarburos (IAPG, Mendoza) y presentamos un trabajo.</span><span class="en" lang="en">We attended the 12th Hydrocarbon Exploration and Development Congress (IAPG, Mendoza) and presented a paper.</span></p></div><img class="ev-pic" src="img/conexplo-grupo.jpg" alt="" loading="lazy"></div>
+        <div class="event"><time>Oct</time><div><h3><span class="es">Nueva Comisión Directiva</span><span class="en" lang="en">New Executive Board</span></h3><p><span class="es">Renovación completa de la comisión para el período 2026–2027.</span><span class="en" lang="en">Full renewal of the board for the 2026–2027 term.</span></p><div class="ev-links"><a class="ev-link" href="#n-comision"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a></div></div></div>
+      </div>
+    </div>
+    <div class="boards">
+      <h3><span class="es">Comisiones anteriores</span><span class="en" lang="en">Previous boards</span></h3>
+      <div class="board"><span class="label"><span class="es">Comisión fundadora (2019)</span><span class="en" lang="en">Founding board (2019)</span></span><p>Rocío Malen Contreras · Nicolás Gastaminza · María Fernanda Graneros · Juan Segundo Sánchez Ruíz</p></div><div class="board"><span class="label"><span class="es">Comisión 2025–2026</span><span class="en" lang="en">2025–2026 board</span></span><p>Matías Ezequiel Contardo (Pres.) · Joaquín Emilio Gómez Córdoba (VP) · Santiago Flores (Sec. Gral.) · Mayra Milena Vilca (Tes.) · Fabricio Mattiuzzi · Lautaro Leonel Medina Teseyra · Tomás Tosello · Catalina Pedro · Jenifer Denise Carrizo · María Florencia Arreyes</p></div>
     </div>
   </div>
 </section>
 
 <section id="s-galeria" class="alt">
   <div class="wrap">
-    <div class="head">
-      <span class="label">Galería</span>
-      <h2>En acción</h2>
-    </div>
+    <div class="head"><span class="label"><span class="es">Galería</span><span class="en" lang="en">Gallery</span></span><h2><span class="es">En acción</span><span class="en" lang="en">In action</span></h2></div>
     <div class="gallery">
       <img class="pic" src="img/charla-escuela.jpg" alt="Estudiantes secundarios leyendo los trípticos del capítulo" loading="lazy" style="object-position:center 45%">
-      <img class="pic" src="img/practica-campo.jpg" alt="Miembros del capítulo con equipo de prospección eléctrica en el campo" loading="lazy" style="object-position:center 62%">
+      <img class="pic" src="img/practica-campo.jpg" alt="Miembros del capítulo con equipo de prospección eléctrica" loading="lazy" style="object-position:center 62%">
       <img class="pic" src="img/expo-stand.jpg" alt="Stand de Ingeniería Geodésica y Geofísica en Exactas para Todos" loading="lazy" style="object-position:center 75%">
-      <img class="pic" src="img/conexplo-secciones.jpg" alt="Secciones sísmicas de cuencas argentinas exhibidas en CONEXPLO" loading="lazy" style="object-position:center">
-      <img class="pic" src="img/conexplo-grupo.jpg" alt="Grupo de participantes en el 12.º Congreso de Exploración y Desarrollo de Hidrocarburos (CONEXPLO), IAPG" loading="lazy" style="object-position:center">
-      <img class="pic" src="img/salida-campo.jpg" alt="Salida de campo con chalecos reflectivos en afloramientos rojizos" loading="lazy" style="object-position:center 60%">
+      <img class="pic" src="img/conexplo-grupo.jpg" alt="Participantes en CONEXPLO 2026" loading="lazy" style="object-position:center">
+      <img class="pic" src="img/conexplo-secciones.jpg" alt="Secciones sísmicas exhibidas en CONEXPLO" loading="lazy" style="object-position:center">
+      <img class="pic" src="img/salida-campo.jpg" alt="Salida de campo" loading="lazy" style="object-position:center 60%">
     </div>
   </div>
 </section>
+</div>
+
+<div class="view" id="noticias" data-view>
+<section id="s-noticias">
+  <div class="wrap">
+    <div class="head">
+      <span class="label"><span class="es">Lo que vamos haciendo</span><span class="en" lang="en">What we are up to</span></span>
+      <h2><span class="es">Noticias</span><span class="en" lang="en">News</span></h2>
+    </div>
+    <div class="news-grid">
+      <a class="news-card" href="#n-sitio-web"><img class="pic wide" src="img/sitio-nuevo.jpg" alt="El capítulo estrena sitio web" loading="lazy" style="object-position:center 40%"><time><span class="es">30 de octubre de 2026</span><span class="en" lang="en">October 30, 2026</span></time><h3><span class="es">El capítulo estrena sitio web</span><span class="en" lang="en">The chapter launches its new website</span></h3><p><span class="es">Toda la información del Capítulo Estudiantil SEG UNT, ahora en un solo lugar y en dos idiomas.</span><span class="en" lang="en">All the information about the SEG UNT Student Chapter, now in one place and in two languages.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-comision"><img class="pic wide" src="img/bandera.jpg" alt="Asumió la nueva Comisión Directiva 2026–2027" loading="lazy" style="object-position:center 40%"><time><span class="es">Octubre de 2026</span><span class="en" lang="en">October 2026</span></time><h3><span class="es">Asumió la nueva Comisión Directiva 2026–2027</span><span class="en" lang="en">The new 2026–2027 Executive Board takes office</span></h3><p><span class="es">El capítulo completó la renovación de todos sus cargos y secretarías.</span><span class="en" lang="en">The chapter completed the renewal of all its officer positions and secretariats.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-webinar-houston"><img class="pic wide" src="img/image-houston-grupo.jpg" alt="«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026" loading="lazy" style="object-position:center 40%"><time><span class="es">11 de septiembre de 2026</span><span class="en" lang="en">September 11, 2026</span></time><h3><span class="es">«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026</span><span class="en" lang="en">"From Tucumán to Houston": the delegation shared its IMAGE 2026 experience</span></h3><p><span class="es">Un webinar junto al capítulo SEG UNLP para compartir lo vivido en la final internacional de la Challenge Bowl.</span><span class="en" lang="en">A webinar with the SEG UNLP chapter to share what it was like at the Challenge Bowl international finals.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-podio"><img class="pic wide" src="img/image-houston-testigos.jpg" alt="Podio completo para el capítulo en la final de la Challenge Bowl" loading="lazy" style="object-position:center 40%"><time><span class="es">Agosto de 2026</span><span class="en" lang="en">August 2026</span></time><h3><span class="es">Podio completo para el capítulo en la final de la Challenge Bowl</span><span class="en" lang="en">The chapter sweeps the Challenge Bowl individual podium</span></h3><p><span class="es">Leandro Vitulli Paz, María Bernarda Kanán y Justo Casañas ocuparon los tres primeros puestos de la final individual en IMAGE 2026.</span><span class="en" lang="en">Leandro Vitulli Paz, María Bernarda Kanán and Justo Casañas took the top three places in the individual final at IMAGE 2026.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-expo"><img class="pic wide" src="img/expo-stand.jpg" alt="El capítulo presente en Exactas para Todos" loading="lazy" style="object-position:center 40%"><time><span class="es">12 al 14 de agosto de 2026</span><span class="en" lang="en">August 12–14, 2026</span></time><h3><span class="es">El capítulo presente en Exactas para Todos</span><span class="en" lang="en">The chapter at Exactas para Todos</span></h3><p><span class="es">Acompañamos el stand de Ingeniería Geodésica y Geofísica y organizamos dos charlas a cargo de estudiantes.</span><span class="en" lang="en">We supported the Geodetic and Geophysical Engineering stand and organized two student talks.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-quiz"><img class="pic wide" src="img/quiz-ambiente.jpg" alt="World Environment Day Quiz: geociencias y ambiente con estudiantes de todo el mundo" loading="lazy" style="object-position:center 40%"><time><span class="es">5 de junio de 2026</span><span class="en" lang="en">June 5, 2026</span></time><h3><span class="es">World Environment Day Quiz: geociencias y ambiente con estudiantes de todo el mundo</span><span class="en" lang="en">World Environment Day Quiz: geosciences and the environment with students worldwide</span></h3><p><span class="es">Un quiz internacional co-organizado con los capítulos SEG ASOIU, UNSJ y UNLP.</span><span class="en" lang="en">An international quiz co-organized with the SEG ASOIU, UNSJ and UNLP chapters.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+      <a class="news-card" href="#n-larac"><img class="pic wide" src="img/larac-2026.jpg" alt="Tres equipos de la UNT clasificaron a la final internacional" loading="lazy" style="object-position:center 40%"><time><span class="es">30 de mayo de 2026</span><span class="en" lang="en">May 30, 2026</span></time><h3><span class="es">Tres equipos de la UNT clasificaron a la final internacional</span><span class="en" lang="en">Three UNT teams qualify for the international finals</span></h3><p><span class="es">En el regional latinoamericano de la Challenge Bowl, con 24 equipos de cinco países, la UNT obtuvo el 1.º, 2.º y 4.º puesto.</span><span class="en" lang="en">At the Latin American regional Challenge Bowl, with 24 teams from five countries, UNT took 1st, 2nd and 4th place.</span></p><span class="more-link"><span class="es">Leer nota →</span><span class="en" lang="en">Read more →</span></span></a>
+    </div>
+  </div>
+</section>
+</div>
+
+<div class="view" id="n-sitio-web" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label"><span class="es">Institucional</span><span class="en" lang="en">Institutional</span> · <span class="es">30 de octubre de 2026</span><span class="en" lang="en">October 30, 2026</span></span>
+    <h1><span class="es">El capítulo estrena sitio web</span><span class="en" lang="en">The chapter launches its new website</span></h1>
+    <p class="lead"><span class="es">Toda la información del Capítulo Estudiantil SEG UNT, ahora en un solo lugar y en dos idiomas.</span><span class="en" lang="en">All the information about the SEG UNT Student Chapter, now in one place and in two languages.</span></p>
+    <img class="pic wide" src="img/sitio-nuevo.jpg" alt="El capítulo estrena sitio web" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">El Capítulo Estudiantil SEG UNT presentó su nuevo sitio web, que reemplaza a la página anterior. El sitio reúne la historia del capítulo desde su creación en 2019, las actividades, los logros, la comisión directiva y las noticias.</span><span class="en" lang="en">The SEG UNT Student Chapter presented its new website, which replaces the previous page. The site brings together the chapter's history since its creation in 2019, its activities, achievements, board and news.</span></p>
+      <p><span class="es">Entre las novedades se destacan la videoteca, conectada al canal de YouTube del capítulo, el formulario de inscripción para nuevos miembros y una sección para profesionales, instituciones y empresas que quieran colaborar.</span><span class="en" lang="en">New features include the video library, connected to the chapter's YouTube channel, the membership form for new members and a section for professionals, institutions and companies that want to collaborate.</span></p>
+      <p><span class="es">El sitio está disponible en español e inglés, para acercar el trabajo del capítulo a la comunidad SEG internacional.</span><span class="en" lang="en">The site is available in Spanish and English, to bring the chapter's work closer to the international SEG community.</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-comision"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">Asumió la nueva Comisión Directiva 2026–2027</span><span class="en" lang="en">The new 2026–2027 Executive Board takes office</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-comision" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label"><span class="es">Institucional</span><span class="en" lang="en">Institutional</span> · <span class="es">Octubre de 2026</span><span class="en" lang="en">October 2026</span></span>
+    <h1><span class="es">Asumió la nueva Comisión Directiva 2026–2027</span><span class="en" lang="en">The new 2026–2027 Executive Board takes office</span></h1>
+    <p class="lead"><span class="es">El capítulo completó la renovación de todos sus cargos y secretarías.</span><span class="en" lang="en">The chapter completed the renewal of all its officer positions and secretariats.</span></p>
+    <img class="pic wide" src="img/bandera.jpg" alt="Asumió la nueva Comisión Directiva 2026–2027" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">En octubre de 2026 el Capítulo Estudiantil SEG UNT renovó por completo su Comisión Directiva. Las postulaciones se recibieron mediante un formulario abierto a los miembros activos.</span><span class="en" lang="en">In October 2026 the SEG UNT Student Chapter fully renewed its Executive Board. Applications were received through a form open to active members.</span></p>
+      <p><span class="es">La presidencia quedó a cargo de Matías Ezequiel Contardo, acompañado por Albana Zottoli en la vicepresidencia, Leandro Andrea Vitulli Paz en la Secretaría General y Joel Perez Leandrini en la Tesorería.</span><span class="en" lang="en">Matías Ezequiel Contardo is President, with Albana Zottoli as Vice President, Leandro Andrea Vitulli Paz as Secretary General and Joel Perez Leandrini as Treasurer.</span></p>
+      <p><span class="es">Las secretarías quedaron integradas así: Extensión, con Matheo Such, Jenifer Denise Carrizo y Emilce Grisel Albornoz; Prensa y Difusión, con Milagros Valentina Gatti, Araceli Velardez y María Claribel; y Proyectos y Logística, con María Bernarda Kanán, Catalina Pedro y Paula Díaz. Los asesores académicos son la Ing. María Fernanda Graneros y el Ing. Sergio Alfredo Sosa.</span><span class="en" lang="en">The secretariats are: Outreach, with Matheo Such, Jenifer Denise Carrizo and Emilce Grisel Albornoz; Press and Communications, with Milagros Valentina Gatti, Araceli Velardez and María Claribel; and Projects and Logistics, with María Bernarda Kanán, Catalina Pedro and Paula Díaz. The faculty advisors are Eng. María Fernanda Graneros and Eng. Sergio Alfredo Sosa.</span></p>
+      <p><span class="es">La nueva comisión agradece el trabajo de la comisión 2025–2026, que llevó adelante la reactivación del capítulo.</span><span class="en" lang="en">The new board thanks the 2025–2026 board, which led the chapter's reactivation.</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-webinar-houston"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026</span><span class="en" lang="en">"From Tucumán to Houston": the delegation shared its IMAGE 2026 experience</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-webinar-houston" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label">Webinar · <span class="es">11 de septiembre de 2026</span><span class="en" lang="en">September 11, 2026</span></span>
+    <h1><span class="es">«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026</span><span class="en" lang="en">"From Tucumán to Houston": the delegation shared its IMAGE 2026 experience</span></h1>
+    <p class="lead"><span class="es">Un webinar junto al capítulo SEG UNLP para compartir lo vivido en la final internacional de la Challenge Bowl.</span><span class="en" lang="en">A webinar with the SEG UNLP chapter to share what it was like at the Challenge Bowl international finals.</span></p>
+    <img class="pic wide" src="img/image-houston-grupo.jpg" alt="«De Tucumán a Houston»: la delegación contó su experiencia en IMAGE 2026" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">El viernes 11 de septiembre los capítulos estudiantiles SEG UNT y SEG UNLP realizaron el webinar «De Tucumán a Houston». Participaron los seis estudiantes de la UNT que viajaron a IMAGE 2026 y Marcelo Isidoro Szelagowski, del capítulo SEG UNLP, que formó parte del SEG/Chevron Student Leadership Symposium.</span><span class="en" lang="en">On Friday, September 11, the SEG UNT and SEG UNLP student chapters held the webinar "From Tucumán to Houston". It featured the six UNT students who travelled to IMAGE 2026 and Marcelo Isidoro Szelagowski, from the SEG UNLP chapter, who took part in the SEG/Chevron Student Leadership Symposium.</span></p>
+      <p><span class="es">Los participantes contaron cómo se prepararon para la competencia, cómo fue la final y qué oportunidades encontraron en el congreso, con la intención de motivar a otros estudiantes a sumarse a las próximas ediciones.</span><span class="en" lang="en">The speakers described how they prepared for the competition, what the finals were like and the opportunities they found at the conference, hoping to encourage other students to join future editions.</span></p>
+      <p><span class="es">La grabación está disponible en el canal de YouTube del capítulo.</span><span class="en" lang="en">The recording is available on the chapter's YouTube channel.</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-podio"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">Podio completo para el capítulo en la final de la Challenge Bowl</span><span class="en" lang="en">The chapter sweeps the Challenge Bowl individual podium</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-podio" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label">Challenge Bowl · <span class="es">Agosto de 2026</span><span class="en" lang="en">August 2026</span></span>
+    <h1><span class="es">Podio completo para el capítulo en la final de la Challenge Bowl</span><span class="en" lang="en">The chapter sweeps the Challenge Bowl individual podium</span></h1>
+    <p class="lead"><span class="es">Leandro Vitulli Paz, María Bernarda Kanán y Justo Casañas ocuparon los tres primeros puestos de la final individual en IMAGE 2026.</span><span class="en" lang="en">Leandro Vitulli Paz, María Bernarda Kanán and Justo Casañas took the top three places in the individual final at IMAGE 2026.</span></p>
+    <img class="pic wide" src="img/image-houston-testigos.jpg" alt="Podio completo para el capítulo en la final de la Challenge Bowl" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">Del 17 al 20 de agosto de 2026 se realizó IMAGE 2026 (International Meeting for Applied Geoscience & Energy), organizado por la SEG y la AAPG en el George R. Brown Convention Center de Houston, Texas. En ese marco se disputó la final internacional de la SEG Challenge Bowl.</span><span class="en" lang="en">IMAGE 2026 (International Meeting for Applied Geoscience & Energy), organized by the SEG and the AAPG, took place on August 17–20, 2026 at the George R. Brown Convention Center in Houston, Texas, hosting the SEG Challenge Bowl international finals.</span></p>
+      <p><span class="es">Seis estudiantes de la UNT compitieron en la final individual, y el podio quedó completo para el capítulo: Leandro Vitulli Paz obtuvo el primer puesto, María Bernarda Kanán el segundo y Justo Casañas el tercero. También compitieron Albana Zottoli, Matheo Such y Araceli Velardez.</span><span class="en" lang="en">Six UNT students competed in the individual final, and the podium was swept by the chapter: Leandro Vitulli Paz won first place, María Bernarda Kanán second and Justo Casañas third. Albana Zottoli, Matheo Such and Araceli Velardez also competed.</span></p>
+      <p><span class="es">Además de la competencia, la delegación recorrió la exposición técnica y participó de las actividades del congreso. La Fundación YPF apoyó la participación de la delegación argentina.</span><span class="en" lang="en">Besides the competition, the delegation visited the technical exhibition and took part in conference activities. Fundación YPF supported the participation of the Argentine delegation.</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-expo"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">El capítulo presente en Exactas para Todos</span><span class="en" lang="en">The chapter at Exactas para Todos</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-expo" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label"><span class="es">Divulgación</span><span class="en" lang="en">Outreach</span> · <span class="es">12 al 14 de agosto de 2026</span><span class="en" lang="en">August 12–14, 2026</span></span>
+    <h1><span class="es">El capítulo presente en Exactas para Todos</span><span class="en" lang="en">The chapter at Exactas para Todos</span></h1>
+    <p class="lead"><span class="es">Acompañamos el stand de Ingeniería Geodésica y Geofísica y organizamos dos charlas a cargo de estudiantes.</span><span class="en" lang="en">We supported the Geodetic and Geophysical Engineering stand and organized two student talks.</span></p>
+    <img class="pic wide" src="img/expo-stand.jpg" alt="El capítulo presente en Exactas para Todos" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">Durante la muestra «Exactas para Todos», parte de la Expo UNT 2026, el capítulo acompañó el stand de Ingeniería Geodésica y Geofísica en el Block 3 de la FACET, donde los miembros conversaron con futuros ingresantes sobre la carrera y las geociencias.</span><span class="en" lang="en">During the "Exactas para Todos" fair, part of the 2026 UNT Expo, the chapter supported the Geodetic and Geophysical Engineering stand at FACET's Block 3, where members talked with prospective students about the degree and the geosciences.</span></p>
+      <p><span class="es">El jueves 13 de agosto, Jenifer Carrizo y Gabriel Urueña presentaron «La cicatriz de California: ¿por qué tiembla? Explorando la Falla de San Andrés». El viernes 14, Aixa Asus y María Jimena Graneros compartieron su «Experiencia de prácticas mineras en YMAD – Farallón Negro».</span><span class="en" lang="en">On Thursday, August 13, Jenifer Carrizo and Gabriel Urueña presented "California's scar: why does it shake? Exploring the San Andreas Fault". On Friday 14, Aixa Asus and María Jimena Graneros shared their "Mining internship experience at YMAD – Farallón Negro".</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-quiz"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">World Environment Day Quiz: geociencias y ambiente con estudiantes de todo el mundo</span><span class="en" lang="en">World Environment Day Quiz: geosciences and the environment with students worldwide</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-quiz" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label"><span class="es">Internacional</span><span class="en" lang="en">International</span> · <span class="es">5 de junio de 2026</span><span class="en" lang="en">June 5, 2026</span></span>
+    <h1><span class="es">World Environment Day Quiz: geociencias y ambiente con estudiantes de todo el mundo</span><span class="en" lang="en">World Environment Day Quiz: geosciences and the environment with students worldwide</span></h1>
+    <p class="lead"><span class="es">Un quiz internacional co-organizado con los capítulos SEG ASOIU, UNSJ y UNLP.</span><span class="en" lang="en">An international quiz co-organized with the SEG ASOIU, UNSJ and UNLP chapters.</span></p>
+    <img class="pic wide" src="img/quiz-ambiente.jpg" alt="World Environment Day Quiz: geociencias y ambiente con estudiantes de todo el mundo" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">Para celebrar el Día Mundial del Medio Ambiente, los capítulos estudiantiles SEG ASOIU, SEG UNT, SEG UNSJ y SEG UNLP organizaron un quiz internacional de geociencias y ambiente, abierto a estudiantes de grado y posgrado de todo el mundo.</span><span class="en" lang="en">To celebrate World Environment Day, the SEG ASOIU, SEG UNT, SEG UNSJ and SEG UNLP student chapters organized an international geosciences and environment quiz, open to undergraduate and graduate students worldwide.</span></p>
+      <p><span class="es">La competencia fue individual: las preguntas se mostraron en vivo por Google Meet y cada participante respondió desde Blooket, con puntaje en tiempo real a lo largo de tres rondas de dificultad creciente.</span><span class="en" lang="en">The competition was individual: questions were shown live on Google Meet and each participant answered on Blooket, with live scoring across three rounds of increasing difficulty.</span></p>
+      <p><span class="es">Las preguntas abarcaron geofísica, geografía, ciencias ambientales, historia de la ciencia e historia del Día Mundial del Medio Ambiente. Los cupos se repartieron entre integrantes de comisiones de capítulos SEG y estudiantes que no forman parte de ningún capítulo.</span><span class="en" lang="en">Questions covered geophysics, geography, environmental sciences, the history of science and the history of World Environment Day. Places were split between SEG chapter board members and students who are not part of any chapter.</span></p>
+    </div>
+    <div class="article-foot"><a class="more" href="#n-larac"><span class="es">Nota anterior: </span><span class="en" lang="en">Previous story: </span><span class="es">Tres equipos de la UNT clasificaron a la final internacional</span><span class="en" lang="en">Three UNT teams qualify for the international finals</span> →</a></div>
+  </div>
+</article>
+</div>
+
+<div class="view" id="n-larac" data-view data-parent="noticias">
+<article class="article">
+  <div class="wrap narrow">
+    <a class="back" href="#noticias"><span class="es">← Volver a Noticias</span><span class="en" lang="en">← Back to News</span></a>
+    <span class="label">Challenge Bowl · <span class="es">30 de mayo de 2026</span><span class="en" lang="en">May 30, 2026</span></span>
+    <h1><span class="es">Tres equipos de la UNT clasificaron a la final internacional</span><span class="en" lang="en">Three UNT teams qualify for the international finals</span></h1>
+    <p class="lead"><span class="es">En el regional latinoamericano de la Challenge Bowl, con 24 equipos de cinco países, la UNT obtuvo el 1.º, 2.º y 4.º puesto.</span><span class="en" lang="en">At the Latin American regional Challenge Bowl, with 24 teams from five countries, UNT took 1st, 2nd and 4th place.</span></p>
+    <img class="pic wide" src="img/larac-2026.jpg" alt="Tres equipos de la UNT clasificaron a la final internacional" loading="lazy" style="object-position:center 40%">
+    <div class="article-body">
+      <p><span class="es">El 30 de mayo de 2026 se realizó de forma virtual el Latin America Regional Challenge Bowl 2026, que alcanzó un récord de participación con 24 equipos: Argentina (8), Brasil (7), Bolivia (5), Colombia (3) y Perú (1).</span><span class="en" lang="en">The Latin America Regional Challenge Bowl 2026 was held virtually on May 30, 2026, with a record 24 teams: Argentina (8), Brazil (7), Bolivia (5), Colombia (3) and Peru (1).</span></p>
+      <p><span class="es">Los Canarios Azules (Albana Zottoli y Leandro Vitulli Paz) obtuvieron el primer puesto; GEOMON (Araceli Velardez y Matheo Such), el segundo; y SPIN D.A.T.O. (Justo Casañas y María Bernarda Kanán), el cuarto.</span><span class="en" lang="en">Los Canarios Azules (Albana Zottoli and Leandro Vitulli Paz) won first place; GEOMON (Araceli Velardez and Matheo Such), second; and SPIN D.A.T.O. (Justo Casañas and María Bernarda Kanán), fourth.</span></p>
+      <p><span class="es">Con tres de los cinco equipos clasificados, el capítulo se preparó para la final de IMAGE 2026 con encuentros virtuales junto a estudiantes de otros capítulos.</span><span class="en" lang="en">With three of the five qualifying teams, the chapter prepared for the IMAGE 2026 finals through virtual sessions with students from other chapters.</span></p>
+    </div>
+    <div class="article-foot"></div>
+  </div>
+</article>
 </div>
 
 <div class="view" id="logros" data-view>
 <section id="s-logros">
   <div class="wrap">
     <div class="head">
-      <span class="label">SEG Challenge Bowl 2026</span>
-      <h2>Logros</h2>
+      <span class="label">SEG Challenge Bowl</span>
+      <h2><span class="es">Logros</span><span class="en" lang="en">Achievements</span></h2>
     </div>
     <div class="stats">
-      <div class="stat"><b>6</b><span>estudiantes de la UNT en la final individual del Challenge Bowl</span></div>
-      <div class="stat"><b>3/3</b><span>lugares del podio para miembros del capítulo</span></div>
-      <div class="stat"><b>3</b><span>equipos de la UNT clasificados a la final internacional</span></div>
-      <div class="stat"><b>24</b><span>equipos de cinco países en el regional latinoamericano, récord de participación</span></div>
+      <div class="stat"><b>6</b><span><span class="es">estudiantes de la UNT en la final individual de IMAGE 2026</span><span class="en" lang="en">UNT students in the IMAGE 2026 individual final</span></span></div>
+      <div class="stat"><b>3/3</b><span><span class="es">lugares del podio para miembros del capítulo</span><span class="en" lang="en">podium places for chapter members</span></span></div>
+      <div class="stat"><b>3</b><span><span class="es">equipos de la UNT clasificados a la final internacional 2026</span><span class="en" lang="en">UNT teams qualified for the 2026 international finals</span></span></div>
+      <div class="stat"><b>24</b><span><span class="es">equipos de cinco países en el regional 2026, récord de participación</span><span class="en" lang="en">teams from five countries at the 2026 regional, a participation record</span></span></div>
     </div>
-    <h3 style="margin-bottom:16px">Regional latinoamericano · 30 de mayo de 2026</h3>
+    <h3 style="margin-bottom:16px"><span class="es">Regional latinoamericano · 30 de mayo de 2026</span><span class="en" lang="en">Latin American regional · May 30, 2026</span></h3>
     <div class="teams">
-      <div class="team"><b>1.º</b><strong>Los Canarios Azules</strong><span>Albana Zottoli y Leandro Vitulli Paz</span></div>
-      <div class="team"><b>2.º</b><strong>GEOMON</strong><span>Araceli Velardez y Matheo Such</span></div>
-      <div class="team"><b>4.º</b><strong>SPIN D.A.T.O.</strong><span>Justo Casañas y María Bernarda Kanán</span></div>
+      <div class="team"><b><span class="es">1.º</span><span class="en" lang="en">1st</span></b><strong>Los Canarios Azules</strong><span>Albana Zottoli <span class="es">y</span><span class="en" lang="en">and</span> Leandro Vitulli Paz</span></div>
+      <div class="team"><b><span class="es">2.º</span><span class="en" lang="en">2nd</span></b><strong>GEOMON</strong><span>Araceli Velardez <span class="es">y</span><span class="en" lang="en">and</span> Matheo Such</span></div>
+      <div class="team"><b><span class="es">4.º</span><span class="en" lang="en">4th</span></b><strong>SPIN D.A.T.O.</strong><span>Justo Casañas <span class="es">y</span><span class="en" lang="en">and</span> María Bernarda Kanán</span></div>
     </div>
     <div class="two">
       <div class="stack">
-        <h3>IMAGE 2026 · Houston · Podio de la final individual</h3>
+        <h3><span class="es">IMAGE 2026 · Houston · Podio de la final individual</span><span class="en" lang="en">IMAGE 2026 · Houston · Individual final podium</span></h3>
         <div class="podium">
-          <div><em>1.º</em><span>Leandro Vitulli Paz</span></div>
-          <div><em>2.º</em><span>María Bernarda Kanán</span></div>
-          <div><em>3.º</em><span>Justo Casañas</span></div>
+          <div><em><span class="es">1.º</span><span class="en" lang="en">1st</span></em><span>Leandro Vitulli Paz</span></div>
+          <div><em><span class="es">2.º</span><span class="en" lang="en">2nd</span></em><span>María Bernarda Kanán</span></div>
+          <div><em><span class="es">3.º</span><span class="en" lang="en">3rd</span></em><span>Justo Casañas</span></div>
         </div>
-        <p>También compitieron Albana Zottoli, Matheo Such y Araceli Velardez. IMAGE (International Meeting for Applied Geoscience &amp; Energy) es organizado por SEG y AAPG.</p>
+        <p><span class="es">También compitieron Albana Zottoli, Matheo Such y Araceli Velardez. IMAGE (International Meeting for Applied Geoscience &amp; Energy) es organizado por SEG y AAPG.</span><span class="en" lang="en">Albana Zottoli, Matheo Such and Araceli Velardez also competed. IMAGE (International Meeting for Applied Geoscience &amp; Energy) is organized by SEG and AAPG.</span></p>
+        <a class="more" href="#n-podio"><span class="es">Leer la nota →</span><span class="en" lang="en">Read the story →</span></a>
       </div>
       <img class="pic" src="img/image-houston-testigos.jpg" alt="Estudiantes del capítulo observando testigos de roca en IMAGE 2026" loading="lazy" style="object-position:center 40%">
+    </div>
+    <div class="head" style="margin-top:72px"><span class="label"><span class="es">Trayectoria</span><span class="en" lang="en">Track record</span></span><h3><span class="es">Resultados anteriores</span><span class="en" lang="en">Earlier results</span></h3></div>
+    <div class="podium">
+      <div><em>2019</em><span><span class="es">2.º puesto nacional en la SEG Challenge Bowl, organizada en Tucumán.</span><span class="en" lang="en">2nd place nationally at the SEG Challenge Bowl, held in Tucumán.</span></span></div>
+      <div><em>2021</em><span><span class="es">4.º puesto en la final internacional de la Challenge Bowl con el equipo GEOTUC (Ariana Dulci y Germán Herrera), entre 18 equipos.</span><span class="en" lang="en">4th place in the Challenge Bowl international finals with team GEOTUC (Ariana Dulci and Germán Herrera), among 18 teams.</span></span></div>
+      <div><em>2021</em><span><span class="es">El proyecto «Una Gota Limpia» llegó a la fase II del programa Geoscientists Without Borders.</span><span class="en" lang="en">The "A Clean Drop" project reached phase II of the Geoscientists Without Borders programme.</span></span></div>
     </div>
   </div>
 </section>
@@ -489,15 +783,15 @@ footer a { color: var(--mist); }
   <div class="wrap">
     <div class="head">
       <span class="label">YouTube · SEG Student Chapter UNT</span>
-      <h2>Videoteca</h2>
-      <p>En nuestro canal de YouTube encontrás la grabación de todos los eventos virtuales realizados hasta el momento.</p>
+      <h2><span class="es">Videoteca</span><span class="en" lang="en">Video library</span></h2>
+      <p><span class="es">En nuestro canal de YouTube encontrás la grabación de los eventos virtuales del capítulo.</span><span class="en" lang="en">Our YouTube channel has the recordings of the chapter's virtual events.</span></p>
     </div>
     <div class="player">
       <iframe src="https://www.youtube.com/embed/videoseries?list=UU6mZB9wMOPJ8f1wXqaKsoFA" title="Videos del canal de YouTube del capítulo" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen></iframe>
     </div>
-    <p class="player-note">La lista se actualiza sola con los videos que subimos al canal. Usá el ícono de lista del reproductor para elegir otro video.</p>
+    <p class="player-note"><span class="es">La lista se actualiza sola con los videos que subimos al canal. Usá el ícono de lista del reproductor para elegir otro video. Las charlas de 2020 a 2022 tienen su link en la pestaña Historia.</span><span class="en" lang="en">The playlist updates automatically with the videos we upload. Use the player's list icon to pick another video. Talks from 2020 to 2022 are linked in the History tab.</span></p>
     <div class="actions" style="margin-top:36px">
-      <a class="btn solid dark" href="https://www.youtube.com/@capitulosegUNT" target="_blank" rel="noopener">Ir al canal de YouTube</a>
+      <a class="btn solid dark" href="https://www.youtube.com/@capitulosegUNT" target="_blank" rel="noopener"><span class="es">Ir al canal de YouTube</span><span class="en" lang="en">Go to the YouTube channel</span></a>
     </div>
   </div>
 </section>
@@ -507,41 +801,24 @@ footer a { color: var(--mist); }
 <section id="s-apoyanos">
   <div class="wrap">
     <div class="head">
-      <span class="label">Colaborá con el capítulo</span>
-      <h2>Apoyanos</h2>
-      <p>Para que el capítulo siga creciendo necesitamos el apoyo de profesionales, instituciones y empresas.</p>
+      <span class="label"><span class="es">Colaborá con el capítulo</span><span class="en" lang="en">Collaborate with the chapter</span></span>
+      <h2><span class="es">Apoyanos</span><span class="en" lang="en">Support us</span></h2>
+      <p><span class="es">Para que el capítulo siga creciendo necesitamos el apoyo de profesionales, instituciones y empresas.</span><span class="en" lang="en">For the chapter to keep growing, we need the support of professionals, institutions and companies.</span></p>
     </div>
     <div class="support">
-      <article class="card">
-        <span class="label">Profesionales</span>
-        <h3>Disertantes y guías</h3>
-        <p>Que participen como disertantes de charlas o cursos, o como guías en proyectos desarrollados por los miembros del capítulo.</p>
-        <small>Toda participación se reconoce con un certificado firmado por los tutores del capítulo en representación de la SEG.</small>
-      </article>
-      <article class="card">
-        <span class="label">Instituciones</span>
-        <h3>Formación</h3>
-        <p>Que contribuyan a la formación de los miembros con acceso a capacitaciones de la institución con alguna facilidad económica.</p>
-        <small>Toda colaboración se visibiliza en nuestras redes sociales.</small>
-      </article>
-      <article class="card">
-        <span class="label">Empresas</span>
-        <h3>Prácticas profesionales</h3>
-        <p>Que ofrezcan la posibilidad de realizar prácticas profesionales en sus establecimientos.</p>
-        <small>Toda colaboración se visibiliza en nuestras redes sociales.</small>
-      </article>
+      <article class="card"><span class="label"><span class="es">Profesionales</span><span class="en" lang="en">Professionals</span></span><h3><span class="es">Disertantes y guías</span><span class="en" lang="en">Speakers and mentors</span></h3><p><span class="es">Que participen como disertantes de charlas o cursos, o como guías en proyectos desarrollados por los miembros del capítulo.</span><span class="en" lang="en">To give talks or courses, or to guide projects developed by chapter members.</span></p><small><span class="es">Toda participación se reconoce con un certificado firmado por los tutores del capítulo en representación de la SEG.</span><span class="en" lang="en">Every contribution is recognized with a certificate signed by the chapter advisors on behalf of the SEG.</span></small></article>
+      <article class="card"><span class="label"><span class="es">Instituciones</span><span class="en" lang="en">Institutions</span></span><h3><span class="es">Formación</span><span class="en" lang="en">Training</span></h3><p><span class="es">Que contribuyan a la formación de los miembros con acceso a capacitaciones de la institución con alguna facilidad económica.</span><span class="en" lang="en">To support members' training with access to institutional courses at reduced cost.</span></p><small><span class="es">Toda colaboración se visibiliza en nuestras redes sociales.</span><span class="en" lang="en">Every collaboration is featured on our social media.</span></small></article>
+      <article class="card"><span class="label"><span class="es">Empresas</span><span class="en" lang="en">Companies</span></span><h3><span class="es">Prácticas profesionales</span><span class="en" lang="en">Internships</span></h3><p><span class="es">Que ofrezcan la posibilidad de realizar prácticas profesionales en sus establecimientos.</span><span class="en" lang="en">To offer internship opportunities at their sites.</span></p><small><span class="es">Toda colaboración se visibiliza en nuestras redes sociales.</span><span class="en" lang="en">Every collaboration is featured on our social media.</span></small></article>
     </div>
     <div class="actions" style="margin:36px 0 64px">
-      <a class="btn solid dark" href="#contacto">Contactanos</a>
+      <a class="btn solid dark" href="#contacto"><span class="es">Contactanos</span><span class="en" lang="en">Contact us</span></a>
     </div>
-    <div class="head">
-      <h3>Ya recibimos el apoyo de</h3>
-    </div>
+    <div class="head"><h3><span class="es">Ya recibimos el apoyo de</span><span class="en" lang="en">We have been supported by</span></h3></div>
     <div class="logos">
       <a class="logo-tile" href="https://seg.org/" target="_blank" rel="noopener"><img src="img/logos/seg.png" alt="Society of Exploration Geophysicists (SEG)" loading="lazy"></a>
       <a class="logo-tile" href="https://fundacionypf.org/" target="_blank" rel="noopener"><img src="img/logos/fundacion-ypf.png" alt="Fundación YPF" loading="lazy"></a>
-      <a class="logo-tile" href="https://www.facet.unt.edu.ar/" target="_blank" rel="noopener"><img src="img/logos/facet.png" alt="Facultad de Ciencias Exactas y Tecnología (FACET – UNT)" loading="lazy"></a>
-      <a class="logo-tile" href="https://csnat.unt.edu.ar/" target="_blank" rel="noopener"><img src="img/logos/fcn-iml.png" alt="Facultad de Ciencias Naturales e Instituto Miguel Lillo (UNT)" loading="lazy"></a>
+      <a class="logo-tile" href="https://www.facet.unt.edu.ar/" target="_blank" rel="noopener"><img src="img/logos/facet.png" alt="FACET – UNT" loading="lazy"></a>
+      <a class="logo-tile" href="https://csnat.unt.edu.ar/" target="_blank" rel="noopener"><img src="img/logos/fcn-iml.png" alt="FCN e IML – UNT" loading="lazy"></a>
     </div>
   </div>
 </section>
@@ -551,20 +828,20 @@ footer a { color: var(--mist); }
 <section id="s-sumate" class="join">
   <div class="wrap">
     <div class="head">
-      <span class="label">Membresía</span>
-      <h2>Sumate al capítulo</h2>
-      <p>Si estudiás Geofísica, Geodesia, Geología o una carrera afín, podés ser parte. Participá en actividades, competencias y proyectos, y conectate con la comunidad geofísica internacional.</p>
+      <span class="label"><span class="es">Membresía</span><span class="en" lang="en">Membership</span></span>
+      <h2><span class="es">Sumate al capítulo</span><span class="en" lang="en">Join the chapter</span></h2>
+      <p><span class="es">Si estudiás Geofísica, Geodesia, Geología o una carrera afín, podés ser parte. Participá en actividades, competencias y proyectos, y conectate con la comunidad geofísica internacional.</span><span class="en" lang="en">If you study Geophysics, Geodesy, Geology or a related field, you can be part of it. Take part in activities, competitions and projects, and connect with the international geophysics community.</span></p>
     </div>
     <div class="steps">
-      <div><h3>Creá tu cuenta en SEG</h3><p>La membresía estudiantil de la SEG es el primer paso.</p></div>
-      <div><h3>Completá la inscripción</h3><p>Llená el formulario de inscripción al capítulo y te sumamos a nuestros canales.</p></div>
-      <div><h3>Participá</h3><p>Sumate a una secretaría, a las charlas y a los proyectos del capítulo.</p></div>
+      <div><h3><span class="es">Creá tu cuenta en SEG</span><span class="en" lang="en">Create your SEG account</span></h3><p><span class="es">La membresía estudiantil de la SEG es el primer paso.</span><span class="en" lang="en">SEG student membership is the first step.</span></p></div>
+      <div><h3><span class="es">Completá la inscripción</span><span class="en" lang="en">Fill in the form</span></h3><p><span class="es">Llená el formulario de inscripción al capítulo y te sumamos a nuestros canales.</span><span class="en" lang="en">Complete the chapter membership form and we will add you to our channels.</span></p></div>
+      <div><h3><span class="es">Participá</span><span class="en" lang="en">Get involved</span></h3><p><span class="es">Sumate a una secretaría, a las charlas y a los proyectos del capítulo.</span><span class="en" lang="en">Join a secretariat, the talks and the chapter's projects.</span></p></div>
     </div>
     <div class="actions" style="margin-top:40px">
-      <a class="btn solid" href="https://forms.gle/TA154vAuEP8QfrKLA" target="_blank" rel="noopener">Formulario de inscripción</a>
-      <a class="btn" href="#contacto">Contactar al capítulo</a>
-      <a class="btn" href="https://www.instagram.com/seg.unt.sc/" target="_blank" rel="noopener">Seguinos en Instagram</a>
-      <a class="btn" href="https://seg.org/" target="_blank" rel="noopener">Sitio de la SEG</a>
+      <a class="btn solid" href="https://forms.gle/TA154vAuEP8QfrKLA" target="_blank" rel="noopener"><span class="es">Formulario de inscripción</span><span class="en" lang="en">Membership form</span></a>
+      <a class="btn" href="#contacto"><span class="es">Contactar al capítulo</span><span class="en" lang="en">Contact the chapter</span></a>
+      <a class="btn" href="https://www.instagram.com/seg.unt.sc/" target="_blank" rel="noopener"><span class="es">Seguinos en Instagram</span><span class="en" lang="en">Follow us on Instagram</span></a>
+      <a class="btn" href="https://seg.org/" target="_blank" rel="noopener"><span class="es">Sitio de la SEG</span><span class="en" lang="en">SEG website</span></a>
     </div>
   </div>
 </section>
@@ -575,25 +852,26 @@ footer a { color: var(--mist); }
   <div class="wrap">
     <div>
       <img src="logo-blanco.png" alt="SEG UNT">
-      <p>Student Chapter SEG – Universidad Nacional de Tucumán<br>Facultad de Ciencias Exactas y Tecnología<br>Av. Independencia 1800, San Miguel de Tucumán</p>
+      <p>Student Chapter SEG – Universidad Nacional de Tucumán<br><span class="es">Facultad de Ciencias Exactas y Tecnología</span><span class="en" lang="en">Faculty of Exact Sciences and Technology</span><br>Av. Independencia 1800, San Miguel de Tucumán</p>
       <p style="margin-top:14px"><a class="mail" href="mailto:capituloseg@herrera.unt.edu.ar">capituloseg@herrera.unt.edu.ar</a></p>
     </div>
     <div>
-      <h3>Enlaces rápidos</h3>
+      <h3><span class="es">Enlaces rápidos</span><span class="en" lang="en">Quick links</span></h3>
       <ul>
-        <li><a href="#inicio">Inicio</a></li>
-        <li><a href="#nosotros">Nosotros</a></li>
-        <li><a href="#actividades">Actividades</a></li>
-        <li><a href="#eventos">Eventos</a></li>
-        <li><a href="#logros">Logros</a></li>
-        <li><a href="#videoteca">Videoteca</a></li>
-        <li><a href="#apoyanos">Apoyanos</a></li>
-        <li><a href="#sumate">Sumate</a></li>
-        <li><a href="https://forms.gle/TA154vAuEP8QfrKLA" target="_blank" rel="noopener">Inscripción al capítulo</a></li>
+        <li><a href="#inicio"><span class="es">Inicio</span><span class="en" lang="en">Home</span></a></li>
+        <li><a href="#nosotros"><span class="es">Nosotros</span><span class="en" lang="en">About</span></a></li>
+        <li><a href="#actividades"><span class="es">Actividades</span><span class="en" lang="en">Activities</span></a></li>
+        <li><a href="#historia"><span class="es">Historia</span><span class="en" lang="en">History</span></a></li>
+        <li><a href="#noticias"><span class="es">Noticias</span><span class="en" lang="en">News</span></a></li>
+        <li><a href="#logros"><span class="es">Logros</span><span class="en" lang="en">Achievements</span></a></li>
+        <li><a href="#videoteca"><span class="es">Videoteca</span><span class="en" lang="en">Videos</span></a></li>
+        <li><a href="#apoyanos"><span class="es">Apoyanos</span><span class="en" lang="en">Support us</span></a></li>
+        <li><a href="#sumate"><span class="es">Sumate</span><span class="en" lang="en">Join</span></a></li>
+        <li><a href="https://forms.gle/TA154vAuEP8QfrKLA" target="_blank" rel="noopener"><span class="es">Inscripción al capítulo</span><span class="en" lang="en">Membership form</span></a></li>
       </ul>
     </div>
     <div>
-      <h3>Redes</h3>
+      <h3><span class="es">Redes</span><span class="en" lang="en">Social media</span></h3>
       <ul>
         <li><a href="https://www.instagram.com/seg.unt.sc/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.linkedin.com/company/69792108/" target="_blank" rel="noopener">LinkedIn</a></li>
@@ -605,13 +883,13 @@ footer a { color: var(--mist); }
     </div>
     <div class="news">
       <h3>Newsletter</h3>
-      <p>Recibí en tu correo la recopilación mensual de noticias del capítulo, próximos eventos e información de becas.</p>
+      <p><span class="es">Recibí en tu correo la recopilación mensual de noticias del capítulo, próximos eventos e información de becas.</span><span class="en" lang="en">Get the chapter's monthly news roundup, upcoming events and scholarship information by email.</span></p>
       <form id="newsletter">
-        <label for="nl-name">Nombre completo</label>
+        <label for="nl-name"><span class="es">Nombre completo</span><span class="en" lang="en">Full name</span></label>
         <input id="nl-name" type="text" required autocomplete="name">
-        <label for="nl-mail">Correo electrónico</label>
+        <label for="nl-mail"><span class="es">Correo electrónico</span><span class="en" lang="en">Email</span></label>
         <input id="nl-mail" type="email" required autocomplete="email">
-        <button type="submit">Suscribirme</button>
+        <button type="submit"><span class="es">Suscribirme</span><span class="en" lang="en">Subscribe</span></button>
         <p id="nl-msg" class="nl-msg" role="status"></p>
       </form>
     </div>
@@ -621,40 +899,67 @@ footer a { color: var(--mist); }
 
 <script>
 (function () {
+  // Menú del celular
   const btn = document.getElementById("menu-btn"), menu = document.getElementById("menu");
   function set(open) { menu.classList.toggle("open", open); btn.setAttribute("aria-expanded", open); btn.setAttribute("aria-label", open ? "Cerrar menú" : "Abrir menú"); }
   btn.addEventListener("click", () => set(!menu.classList.contains("open")));
   menu.addEventListener("click", e => { if (e.target.closest("a")) set(false); });
-})();
-(function () {
-  const views = [...document.querySelectorAll("[data-view]")].map(v => v.id);
+
+  // Idioma
+  const langBtn = document.getElementById("lang-btn");
+  function setLang(l) {
+    document.documentElement.lang = l;
+    langBtn.setAttribute("aria-label", l === "es" ? "Change language to English" : "Cambiar idioma a español");
+    try { localStorage.setItem("lang", l); } catch (e) {}
+  }
+  let saved = "es";
+  try { saved = localStorage.getItem("lang") || "es"; } catch (e) {}
+  setLang(saved === "en" ? "en" : "es");
+  langBtn.addEventListener("click", () => setLang(document.documentElement.lang === "es" ? "en" : "es"));
+
+  // Pestañas
+  const views = [...document.querySelectorAll("[data-view]")];
   function show(scroll) {
-    const h = location.hash.slice(1);
+    const h = decodeURIComponent(location.hash.slice(1));
     if (h === "contacto") { document.getElementById("contacto").scrollIntoView(); return; }
-    const id = views.includes(h) ? h : "inicio";
-    document.querySelectorAll("[data-view]").forEach(v => v.classList.toggle("active", v.id === id));
+    let target = h ? document.getElementById(h) : null;
+    let view = target && target.hasAttribute("data-view") ? target : (target ? target.closest("[data-view]") : null);
+    if (!view) { view = document.getElementById("inicio"); target = null; }
+    views.forEach(v => v.classList.toggle("active", v === view));
+    const tab = view.dataset.parent || view.id;
     document.querySelectorAll("[data-tab]").forEach(a => {
-      if (a.dataset.tab === id) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
+      if (a.dataset.tab === tab) a.setAttribute("aria-current", "page"); else a.removeAttribute("aria-current");
     });
-    if (scroll) window.scrollTo(0, 0);
+    if (target && target !== view) target.scrollIntoView();
+    else if (scroll) window.scrollTo(0, 0);
     window.dispatchEvent(new Event("viewchange"));
   }
   addEventListener("hashchange", () => show(true));
   show(false);
+
+  // Saltos entre años de la historia
+  document.querySelectorAll("[data-jump]").forEach(a => a.addEventListener("click", e => {
+    e.preventDefault();
+    document.getElementById(a.dataset.jump).scrollIntoView({ behavior: matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth" });
+  }));
 })();
+
 document.getElementById("newsletter").addEventListener("submit", function (e) {
   e.preventDefault();
   const n = document.getElementById("nl-name").value.trim();
   const m = document.getElementById("nl-mail").value.trim();
-  const body = "Hola, quiero suscribirme al newsletter del capítulo.%0D%0ANombre: " + encodeURIComponent(n) + "%0D%0ACorreo: " + encodeURIComponent(m);
-  document.getElementById("nl-msg").textContent = "Se abrirá tu correo con la solicitud lista para enviar a capituloseg@herrera.unt.edu.ar.";
-  location.href = "mailto:capituloseg@herrera.unt.edu.ar?subject=" + encodeURIComponent("Suscripción al newsletter") + "&body=" + body;
+  const en = document.documentElement.lang === "en";
+  const body = encodeURIComponent((en ? "Hello, I would like to subscribe to the chapter newsletter." : "Hola, quiero suscribirme al newsletter del capítulo.") + "\nNombre / Name: " + n + "\nCorreo / Email: " + m);
+  document.getElementById("nl-msg").textContent = en ? "Your email app will open with the request ready to send to capituloseg@herrera.unt.edu.ar." : "Se abrirá tu correo con la solicitud lista para enviar a capituloseg@herrera.unt.edu.ar.";
+  location.href = "mailto:capituloseg@herrera.unt.edu.ar?subject=" + encodeURIComponent("Newsletter SEG UNT") + "&body=" + body;
 });
+
 (function () {
   const c = document.getElementById("traces");
   const ctx = c.getContext("2d");
   function draw() {
     const r = c.getBoundingClientRect();
+    if (!r.width) return;
     const dpr = window.devicePixelRatio || 1;
     c.width = r.width * dpr; c.height = r.height * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
@@ -686,6 +991,7 @@ document.getElementById("newsletter").addEventListener("submit", function (e) {
   addEventListener("resize", draw);
   addEventListener("viewchange", draw);
 })();
+
 </script>
 </body>
 </html>
